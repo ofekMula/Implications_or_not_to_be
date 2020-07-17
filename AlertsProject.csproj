@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\Ofek Mula\Desktop\AlertsProject.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AFE159B-7259-4C84-B883-33AB7D980DFE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>AlertsProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>AlertsProject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CircularProgressBar" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="WinFormAnimation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddImageUrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authentication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilesListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoFile.cs" />
+    <Compile Include="Inquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fault.cs" />
+    <Compile Include="Implications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="StatLog.cs" />
+    <Compile Include="Stats.cs" />
+    <Compile Include="SystemComponent.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="UpdateComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateFault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddComponent.resx" />
+    <EmbeddedResource Include="AddFault.resx" />
+    <EmbeddedResource Include="AddImageUrl.resx" />
+    <EmbeddedResource Include="AdvancedSearch.resx" />
+    <EmbeddedResource Include="Authentication.resx" />
+    <EmbeddedResource Include="DeleteComponent.resx" />
+    <EmbeddedResource Include="Features.resx" />
+    <EmbeddedResource Include="FileLoader.resx" />
+    <EmbeddedResource Include="FilesListWindow.resx" />
+    <EmbeddedResource Include="Implications.resx" />
+    <EmbeddedResource Include="Inquiry.resx" />
+    <EmbeddedResource Include="MyPanel.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="UpdateComponent.resx" />
+    <EmbeddedResource Include="UpdateFault.resx" />
+    <EmbeddedResource Include="UserControl1.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
