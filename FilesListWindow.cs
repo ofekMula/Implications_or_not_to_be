@@ -60,7 +60,7 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (FilesListWindow));
+      ComponentResourceManager resources = new ComponentResourceManager(typeof (FilesListWindow));
       this.label2 = new Label();
       this.button4 = new Button();
       this.myPanel1 = new MyPanel();
@@ -103,7 +103,7 @@ namespace AlertsProject
       this.button2.FlatStyle = FlatStyle.Flat;
       this.button2.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.button2.ForeColor = Color.Black;
-      this.button2.Image = (Image) componentResourceManager.GetObject("button2.Image");
+      this.button2.Image = (Image) resources.GetObject("button2.Image");
       this.button2.ImageAlign = ContentAlignment.MiddleLeft;
       this.button2.Location = new Point(100, 129);
       this.button2.Name = "button2";
@@ -120,7 +120,7 @@ namespace AlertsProject
       this.button1.FlatStyle = FlatStyle.Flat;
       this.button1.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.button1.ForeColor = Color.Black;
-      this.button1.Image = (Image) componentResourceManager.GetObject("button1.Image");
+      this.button1.Image = (Image) resources.GetObject("button1.Image");
       this.button1.ImageAlign = ContentAlignment.MiddleLeft;
       this.button1.Location = new Point(100, 68);
       this.button1.Name = "button1";
@@ -137,7 +137,7 @@ namespace AlertsProject
       this.addNewComponentButton.FlatStyle = FlatStyle.Flat;
       this.addNewComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.addNewComponentButton.ForeColor = Color.Black;
-      this.addNewComponentButton.Image = (Image) componentResourceManager.GetObject("addNewComponentButton.Image");
+      this.addNewComponentButton.Image = (Image) resources.GetObject("addNewComponentButton.Image");
       this.addNewComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.addNewComponentButton.Location = new Point(103, 3);
       this.addNewComponentButton.Name = "addNewComponentButton";
@@ -150,14 +150,12 @@ namespace AlertsProject
       this.addNewComponentButton.Click += new EventHandler(this.addNewComponentButton_Click);
       this.AutoScaleDimensions = new SizeF(6f, 13f);
       this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
+      this.BackgroundImage = (Image) resources.GetObject("$this.BackgroundImage");
       this.BackgroundImageLayout = ImageLayout.Center;
       this.ClientSize = new Size(402, 549);
       this.Controls.Add((Control) this.button4);
       this.Controls.Add((Control) this.myPanel1);
       this.Controls.Add((Control) this.label2);
-      this.Name = nameof (FilesListWindow);
-      this.Text = nameof (FilesListWindow);
       this.FormClosed += new FormClosedEventHandler(this.FilesListWindow_FormClosed);
       this.Load += new EventHandler(this.FilesListWindow_Load);
       this.myPanel1.ResumeLayout(false);

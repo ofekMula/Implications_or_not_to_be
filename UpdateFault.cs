@@ -198,230 +198,309 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (UpdateFault));
-      this.label4 = new Label();
-      this.implicationsTextBox = new RichTextBox();
-      this.FaultsNamesComboBox = new ComboBox();
-      this.label5 = new Label();
-      this.label6 = new Label();
-      this.updatedFaultNameTextBox = new TextBox();
-      this.updateFaultButton = new Button();
-      this.label1 = new Label();
-      this.deleteAffectedComponentButton = new Button();
-      this.resetAffectedComponentListButton = new Button();
-      this.addAffectedComponentButton = new Button();
-      this.label2 = new Label();
-      this.affectedComponentsNameList = new ComboBox();
-      this.affectedComponentsView = new DataGridView();
-      this.FaultsHeader = new DataGridViewTextBoxColumn();
-      this.implicationsHeader = new DataGridViewTextBoxColumn();
-      this.chooseFaultButton = new Button();
-      this.cancelUpdateButton = new Button();
-      ((ISupportInitialize) this.affectedComponentsView).BeginInit();
-      this.SuspendLayout();
-      this.label4.AutoSize = true;
-      this.label4.BackColor = Color.Transparent;
-      this.label4.Font = new Font("Century Gothic", 39.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label4.ForeColor = SystemColors.ActiveCaptionText;
-      this.label4.Location = new Point(470, 9);
-      this.label4.Name = "label4";
-      this.label4.RightToLeft = RightToLeft.Yes;
-      this.label4.Size = new Size(402, 63);
-      this.label4.TabIndex = 21;
-      this.label4.Text = "עדכון תקלה קיימת";
-      this.label4.Click += new EventHandler(this.label4_Click);
-      this.implicationsTextBox.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.implicationsTextBox.Location = new Point(547, 235);
-      this.implicationsTextBox.Name = "implicationsTextBox";
-      this.implicationsTextBox.RightToLeft = RightToLeft.Yes;
-      this.implicationsTextBox.Size = new Size(315, 91);
-      this.implicationsTextBox.TabIndex = 22;
-      this.implicationsTextBox.Text = "";
-      this.implicationsTextBox.TextChanged += new EventHandler(this.implicationsTextBox_TextChanged);
-      this.FaultsNamesComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-      this.FaultsNamesComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-      this.FaultsNamesComboBox.Font = new Font("Century Gothic", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.FaultsNamesComboBox.FormattingEnabled = true;
-      this.FaultsNamesComboBox.Location = new Point(428, 104);
-      this.FaultsNamesComboBox.Name = "FaultsNamesComboBox";
-      this.FaultsNamesComboBox.RightToLeft = RightToLeft.Yes;
-      this.FaultsNamesComboBox.Size = new Size(180, 29);
-      this.FaultsNamesComboBox.TabIndex = 23;
-      this.FaultsNamesComboBox.SelectedIndexChanged += new EventHandler(this.FaultsNamesComboBox_SelectedIndexChanged);
-      this.label5.AutoSize = true;
-      this.label5.BackColor = Color.Transparent;
-      this.label5.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label5.ForeColor = SystemColors.ActiveCaptionText;
-      this.label5.Location = new Point(704, 154);
-      this.label5.Name = "label5";
-      this.label5.RightToLeft = RightToLeft.Yes;
-      this.label5.Size = new Size(163, 30);
-      this.label5.TabIndex = 24;
-      this.label5.Text = "שינוי שם תקלה:";
-      this.label5.Click += new EventHandler(this.label5_Click);
-      this.label6.AutoSize = true;
-      this.label6.BackColor = Color.Transparent;
-      this.label6.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label6.ForeColor = SystemColors.ActiveCaptionText;
-      this.label6.Location = new Point(588, 202);
-      this.label6.Name = "label6";
-      this.label6.RightToLeft = RightToLeft.Yes;
-      this.label6.Size = new Size(279, 30);
-      this.label6.TabIndex = 26;
-      this.label6.Text = "עדכון משמעויות של התקלה:";
-      this.label6.Click += new EventHandler(this.label6_Click);
-      this.updatedFaultNameTextBox.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.updatedFaultNameTextBox.Location = new Point(557, 161);
-      this.updatedFaultNameTextBox.MaxLength = 3000;
-      this.updatedFaultNameTextBox.Name = "updatedFaultNameTextBox";
-      this.updatedFaultNameTextBox.RightToLeft = RightToLeft.Yes;
-      this.updatedFaultNameTextBox.Size = new Size(151, 23);
-      this.updatedFaultNameTextBox.TabIndex = 25;
-      this.updatedFaultNameTextBox.TextChanged += new EventHandler(this.updatedFaultNameTextBox_TextChanged);
-      this.updateFaultButton.FlatStyle = FlatStyle.System;
-      this.updateFaultButton.Font = new Font("Century Gothic", 18f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.updateFaultButton.ForeColor = Color.White;
-      this.updateFaultButton.Location = new Point(12, 471);
-      this.updateFaultButton.Name = "updateFaultButton";
-      this.updateFaultButton.RightToLeft = RightToLeft.Yes;
-      this.updateFaultButton.Size = new Size(170, 70);
-      this.updateFaultButton.TabIndex = 28;
-      this.updateFaultButton.Text = "עדכון תקלה";
-      this.updateFaultButton.UseVisualStyleBackColor = true;
-      this.updateFaultButton.Click += new EventHandler(this.updateFaultButton_Click);
-      this.label1.AutoSize = true;
-      this.label1.BackColor = Color.Transparent;
-      this.label1.Font = new Font("Century Gothic", 21.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label1.ForeColor = SystemColors.ActiveCaptionText;
-      this.label1.Location = new Point(614, 97);
-      this.label1.Name = "label1";
-      this.label1.RightToLeft = RightToLeft.Yes;
-      this.label1.Size = new Size(252, 36);
-      this.label1.TabIndex = 29;
-      this.label1.Text = "בחירת תקלה לעדכון:";
-      this.label1.Click += new EventHandler(this.label1_Click);
-      this.deleteAffectedComponentButton.FlatStyle = FlatStyle.System;
-      this.deleteAffectedComponentButton.Font = new Font("Century Gothic", 11.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.deleteAffectedComponentButton.Location = new Point(291, 485);
-      this.deleteAffectedComponentButton.Name = "deleteAffectedComponentButton";
-      this.deleteAffectedComponentButton.RightToLeft = RightToLeft.Yes;
-      this.deleteAffectedComponentButton.Size = new Size(95, 48);
-      this.deleteAffectedComponentButton.TabIndex = 51;
-      this.deleteAffectedComponentButton.Text = "מחיקת רכיב מהרשימה";
-      this.deleteAffectedComponentButton.UseVisualStyleBackColor = true;
-      this.deleteAffectedComponentButton.Click += new EventHandler(this.deleteAffectedComponentButton_Click);
-      this.resetAffectedComponentListButton.FlatStyle = FlatStyle.System;
-      this.resetAffectedComponentListButton.Font = new Font("Century Gothic", 11.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.resetAffectedComponentListButton.Location = new Point(292, 431);
-      this.resetAffectedComponentListButton.Name = "resetAffectedComponentListButton";
-      this.resetAffectedComponentListButton.RightToLeft = RightToLeft.Yes;
-      this.resetAffectedComponentListButton.Size = new Size(94, 48);
-      this.resetAffectedComponentListButton.TabIndex = 50;
-      this.resetAffectedComponentListButton.Text = "איפוס רכיבים מושפעים";
-      this.resetAffectedComponentListButton.UseVisualStyleBackColor = true;
-      this.resetAffectedComponentListButton.Click += new EventHandler(this.resetAffectedComponentListButton_Click);
-      this.addAffectedComponentButton.FlatStyle = FlatStyle.System;
-      this.addAffectedComponentButton.Font = new Font("Century Gothic", 11.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.addAffectedComponentButton.Location = new Point(395, 358);
-      this.addAffectedComponentButton.Name = "addAffectedComponentButton";
-      this.addAffectedComponentButton.RightToLeft = RightToLeft.Yes;
-      this.addAffectedComponentButton.Size = new Size(69, 24);
-      this.addAffectedComponentButton.TabIndex = 49;
-      this.addAffectedComponentButton.Text = "הוסף";
-      this.addAffectedComponentButton.UseVisualStyleBackColor = true;
-      this.addAffectedComponentButton.Click += new EventHandler(this.addAffectedComponentButton_Click);
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = SystemColors.ActiveCaptionText;
-      this.label2.Location = new Point(663, 351);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(204, 30);
-      this.label2.TabIndex = 48;
-      this.label2.Text = "הוספת רכיב מושפע:";
-      this.label2.Click += new EventHandler(this.label2_Click);
-      this.affectedComponentsNameList.AutoCompleteMode = AutoCompleteMode.Suggest;
-      this.affectedComponentsNameList.AutoCompleteSource = AutoCompleteSource.ListItems;
-      this.affectedComponentsNameList.Font = new Font("Century Gothic", 8.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.affectedComponentsNameList.FormattingEnabled = true;
-      this.affectedComponentsNameList.Location = new Point(470, 357);
-      this.affectedComponentsNameList.Name = "affectedComponentsNameList";
-      this.affectedComponentsNameList.RightToLeft = RightToLeft.Yes;
-      this.affectedComponentsNameList.Size = new Size(194, 24);
-      this.affectedComponentsNameList.TabIndex = 46;
-      this.affectedComponentsNameList.SelectedIndexChanged += new EventHandler(this.affectedComponentsNameList_SelectedIndexChanged);
-      this.affectedComponentsView.AllowUserToAddRows = false;
-      this.affectedComponentsView.AllowUserToDeleteRows = false;
-      this.affectedComponentsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-      this.affectedComponentsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.affectedComponentsView.Columns.AddRange((DataGridViewColumn) this.FaultsHeader, (DataGridViewColumn) this.implicationsHeader);
-      this.affectedComponentsView.Location = new Point(391, 401);
-      this.affectedComponentsView.MultiSelect = false;
-      this.affectedComponentsView.Name = "affectedComponentsView";
-      this.affectedComponentsView.RightToLeft = RightToLeft.Yes;
-      this.affectedComponentsView.RowHeadersVisible = false;
-      this.affectedComponentsView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-      this.affectedComponentsView.Size = new Size(471, 138);
-      this.affectedComponentsView.TabIndex = 52;
-      this.affectedComponentsView.CellContentClick += new DataGridViewCellEventHandler(this.affectedComponentsView_CellContentClick);
-      this.FaultsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-      this.FaultsHeader.HeaderText = "שם הרכיב";
-      this.FaultsHeader.MinimumWidth = 150;
-      this.FaultsHeader.Name = "FaultsHeader";
-      this.FaultsHeader.Width = 150;
-      this.implicationsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-      this.implicationsHeader.HeaderText = "תיאור הרכיב";
-      this.implicationsHeader.Name = "implicationsHeader";
-      this.chooseFaultButton.Font = new Font("Century Gothic", 15.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.chooseFaultButton.Location = new Point(347, 104);
-      this.chooseFaultButton.Name = "chooseFaultButton";
-      this.chooseFaultButton.Size = new Size(75, 29);
-      this.chooseFaultButton.TabIndex = 53;
-      this.chooseFaultButton.Text = "הצגה";
-      this.chooseFaultButton.UseVisualStyleBackColor = true;
-      this.chooseFaultButton.Click += new EventHandler(this.chooseFaultButton_Click);
-      this.cancelUpdateButton.FlatStyle = FlatStyle.System;
-      this.cancelUpdateButton.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.cancelUpdateButton.ForeColor = Color.White;
-      this.cancelUpdateButton.Location = new Point(12, 420);
-      this.cancelUpdateButton.Name = "cancelUpdateButton";
-      this.cancelUpdateButton.RightToLeft = RightToLeft.Yes;
-      this.cancelUpdateButton.Size = new Size(170, 45);
-      this.cancelUpdateButton.TabIndex = 54;
-      this.cancelUpdateButton.Text = "ניקוי שדות";
-      this.cancelUpdateButton.UseVisualStyleBackColor = true;
-      this.cancelUpdateButton.Click += new EventHandler(this.cancelUpdateButton_Click);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.ClientSize = new Size(884, 561);
-      this.Controls.Add((Control) this.cancelUpdateButton);
-      this.Controls.Add((Control) this.chooseFaultButton);
-      this.Controls.Add((Control) this.affectedComponentsView);
-      this.Controls.Add((Control) this.deleteAffectedComponentButton);
-      this.Controls.Add((Control) this.resetAffectedComponentListButton);
-      this.Controls.Add((Control) this.addAffectedComponentButton);
-      this.Controls.Add((Control) this.label2);
-      this.Controls.Add((Control) this.affectedComponentsNameList);
-      this.Controls.Add((Control) this.label1);
-      this.Controls.Add((Control) this.label4);
-      this.Controls.Add((Control) this.implicationsTextBox);
-      this.Controls.Add((Control) this.FaultsNamesComboBox);
-      this.Controls.Add((Control) this.label5);
-      this.Controls.Add((Control) this.label6);
-      this.Controls.Add((Control) this.updatedFaultNameTextBox);
-      this.Controls.Add((Control) this.updateFaultButton);
-      this.ForeColor = SystemColors.ActiveCaptionText;
-      this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.MaximizeBox = false;
-      this.Name = nameof (UpdateFault);
-      this.Text = nameof (UpdateFault);
-      this.Load += new EventHandler(this.UpdateFault_Load);
-      ((ISupportInitialize) this.affectedComponentsView).EndInit();
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateFault));
+            this.label4 = new System.Windows.Forms.Label();
+            this.implicationsTextBox = new System.Windows.Forms.RichTextBox();
+            this.FaultsNamesComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.updatedFaultNameTextBox = new System.Windows.Forms.TextBox();
+            this.updateFaultButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.deleteAffectedComponentButton = new System.Windows.Forms.Button();
+            this.resetAffectedComponentListButton = new System.Windows.Forms.Button();
+            this.addAffectedComponentButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.affectedComponentsNameList = new System.Windows.Forms.ComboBox();
+            this.affectedComponentsView = new System.Windows.Forms.DataGridView();
+            this.FaultsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.implicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chooseFaultButton = new System.Windows.Forms.Button();
+            this.cancelUpdateButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(705, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(616, 93);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "עדכון תקלה קיימת";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // implicationsTextBox
+            // 
+            this.implicationsTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.implicationsTextBox.Location = new System.Drawing.Point(820, 362);
+            this.implicationsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.implicationsTextBox.Name = "implicationsTextBox";
+            this.implicationsTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.implicationsTextBox.Size = new System.Drawing.Size(470, 138);
+            this.implicationsTextBox.TabIndex = 22;
+            this.implicationsTextBox.Text = "";
+            this.implicationsTextBox.TextChanged += new System.EventHandler(this.implicationsTextBox_TextChanged);
+            // 
+            // FaultsNamesComboBox
+            // 
+            this.FaultsNamesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.FaultsNamesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.FaultsNamesComboBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultsNamesComboBox.FormattingEnabled = true;
+            this.FaultsNamesComboBox.Location = new System.Drawing.Point(642, 160);
+            this.FaultsNamesComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FaultsNamesComboBox.Name = "FaultsNamesComboBox";
+            this.FaultsNamesComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FaultsNamesComboBox.Size = new System.Drawing.Size(268, 38);
+            this.FaultsNamesComboBox.TabIndex = 23;
+            this.FaultsNamesComboBox.SelectedIndexChanged += new System.EventHandler(this.FaultsNamesComboBox_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(1056, 237);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(229, 43);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "שינוי שם תקלה:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(882, 311);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(391, 43);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "עדכון משמעויות של התקלה:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // updatedFaultNameTextBox
+            // 
+            this.updatedFaultNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatedFaultNameTextBox.Location = new System.Drawing.Point(824, 249);
+            this.updatedFaultNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updatedFaultNameTextBox.MaxLength = 3000;
+            this.updatedFaultNameTextBox.Name = "updatedFaultNameTextBox";
+            this.updatedFaultNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.updatedFaultNameTextBox.Size = new System.Drawing.Size(224, 31);
+            this.updatedFaultNameTextBox.TabIndex = 25;
+            this.updatedFaultNameTextBox.TextChanged += new System.EventHandler(this.updatedFaultNameTextBox_TextChanged);
+            // 
+            // updateFaultButton
+            // 
+            this.updateFaultButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.updateFaultButton.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateFaultButton.ForeColor = System.Drawing.Color.White;
+            this.updateFaultButton.Location = new System.Drawing.Point(18, 725);
+            this.updateFaultButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updateFaultButton.Name = "updateFaultButton";
+            this.updateFaultButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.updateFaultButton.Size = new System.Drawing.Size(255, 108);
+            this.updateFaultButton.TabIndex = 28;
+            this.updateFaultButton.Text = "עדכון תקלה";
+            this.updateFaultButton.UseVisualStyleBackColor = true;
+            this.updateFaultButton.Click += new System.EventHandler(this.updateFaultButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(921, 149);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(360, 51);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "בחירת תקלה לעדכון:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // deleteAffectedComponentButton
+            // 
+            this.deleteAffectedComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.deleteAffectedComponentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteAffectedComponentButton.Location = new System.Drawing.Point(436, 746);
+            this.deleteAffectedComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteAffectedComponentButton.Name = "deleteAffectedComponentButton";
+            this.deleteAffectedComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.deleteAffectedComponentButton.Size = new System.Drawing.Size(142, 74);
+            this.deleteAffectedComponentButton.TabIndex = 51;
+            this.deleteAffectedComponentButton.Text = "מחיקת רכיב מהרשימה";
+            this.deleteAffectedComponentButton.UseVisualStyleBackColor = true;
+            this.deleteAffectedComponentButton.Click += new System.EventHandler(this.deleteAffectedComponentButton_Click);
+            // 
+            // resetAffectedComponentListButton
+            // 
+            this.resetAffectedComponentListButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.resetAffectedComponentListButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetAffectedComponentListButton.Location = new System.Drawing.Point(438, 663);
+            this.resetAffectedComponentListButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.resetAffectedComponentListButton.Name = "resetAffectedComponentListButton";
+            this.resetAffectedComponentListButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.resetAffectedComponentListButton.Size = new System.Drawing.Size(141, 74);
+            this.resetAffectedComponentListButton.TabIndex = 50;
+            this.resetAffectedComponentListButton.Text = "איפוס רכיבים מושפעים";
+            this.resetAffectedComponentListButton.UseVisualStyleBackColor = true;
+            this.resetAffectedComponentListButton.Click += new System.EventHandler(this.resetAffectedComponentListButton_Click);
+            // 
+            // addAffectedComponentButton
+            // 
+            this.addAffectedComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.addAffectedComponentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAffectedComponentButton.Location = new System.Drawing.Point(592, 551);
+            this.addAffectedComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addAffectedComponentButton.Name = "addAffectedComponentButton";
+            this.addAffectedComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.addAffectedComponentButton.Size = new System.Drawing.Size(104, 37);
+            this.addAffectedComponentButton.TabIndex = 49;
+            this.addAffectedComponentButton.Text = "הוסף";
+            this.addAffectedComponentButton.UseVisualStyleBackColor = true;
+            this.addAffectedComponentButton.Click += new System.EventHandler(this.addAffectedComponentButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(994, 540);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(287, 43);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "הוספת רכיב מושפע:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // affectedComponentsNameList
+            // 
+            this.affectedComponentsNameList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.affectedComponentsNameList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.affectedComponentsNameList.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.affectedComponentsNameList.FormattingEnabled = true;
+            this.affectedComponentsNameList.Location = new System.Drawing.Point(705, 549);
+            this.affectedComponentsNameList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.affectedComponentsNameList.Name = "affectedComponentsNameList";
+            this.affectedComponentsNameList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.affectedComponentsNameList.Size = new System.Drawing.Size(289, 29);
+            this.affectedComponentsNameList.TabIndex = 46;
+            this.affectedComponentsNameList.SelectedIndexChanged += new System.EventHandler(this.affectedComponentsNameList_SelectedIndexChanged);
+            // 
+            // affectedComponentsView
+            // 
+            this.affectedComponentsView.AllowUserToAddRows = false;
+            this.affectedComponentsView.AllowUserToDeleteRows = false;
+            this.affectedComponentsView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.affectedComponentsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.affectedComponentsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FaultsHeader,
+            this.implicationsHeader});
+            this.affectedComponentsView.Location = new System.Drawing.Point(586, 617);
+            this.affectedComponentsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.affectedComponentsView.MultiSelect = false;
+            this.affectedComponentsView.Name = "affectedComponentsView";
+            this.affectedComponentsView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.affectedComponentsView.RowHeadersVisible = false;
+            this.affectedComponentsView.RowHeadersWidth = 62;
+            this.affectedComponentsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.affectedComponentsView.Size = new System.Drawing.Size(706, 212);
+            this.affectedComponentsView.TabIndex = 52;
+            this.affectedComponentsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.affectedComponentsView_CellContentClick);
+            // 
+            // FaultsHeader
+            // 
+            this.FaultsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FaultsHeader.HeaderText = "שם הרכיב";
+            this.FaultsHeader.MinimumWidth = 150;
+            this.FaultsHeader.Name = "FaultsHeader";
+            this.FaultsHeader.Width = 150;
+            // 
+            // implicationsHeader
+            // 
+            this.implicationsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.implicationsHeader.HeaderText = "תיאור הרכיב";
+            this.implicationsHeader.MinimumWidth = 8;
+            this.implicationsHeader.Name = "implicationsHeader";
+            // 
+            // chooseFaultButton
+            // 
+            this.chooseFaultButton.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseFaultButton.Location = new System.Drawing.Point(520, 160);
+            this.chooseFaultButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chooseFaultButton.Name = "chooseFaultButton";
+            this.chooseFaultButton.Size = new System.Drawing.Size(112, 45);
+            this.chooseFaultButton.TabIndex = 53;
+            this.chooseFaultButton.Text = "הצגה";
+            this.chooseFaultButton.UseVisualStyleBackColor = true;
+            this.chooseFaultButton.Click += new System.EventHandler(this.chooseFaultButton_Click);
+            // 
+            // cancelUpdateButton
+            // 
+            this.cancelUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cancelUpdateButton.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelUpdateButton.ForeColor = System.Drawing.Color.White;
+            this.cancelUpdateButton.Location = new System.Drawing.Point(18, 646);
+            this.cancelUpdateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cancelUpdateButton.Name = "cancelUpdateButton";
+            this.cancelUpdateButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cancelUpdateButton.Size = new System.Drawing.Size(255, 69);
+            this.cancelUpdateButton.TabIndex = 54;
+            this.cancelUpdateButton.Text = "ניקוי שדות";
+            this.cancelUpdateButton.UseVisualStyleBackColor = true;
+            this.cancelUpdateButton.Click += new System.EventHandler(this.cancelUpdateButton_Click);
+            // 
+            // UpdateFault
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.Controls.Add(this.cancelUpdateButton);
+            this.Controls.Add(this.chooseFaultButton);
+            this.Controls.Add(this.affectedComponentsView);
+            this.Controls.Add(this.deleteAffectedComponentButton);
+            this.Controls.Add(this.resetAffectedComponentListButton);
+            this.Controls.Add(this.addAffectedComponentButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.affectedComponentsNameList);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.implicationsTextBox);
+            this.Controls.Add(this.FaultsNamesComboBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.updatedFaultNameTextBox);
+            this.Controls.Add(this.updateFaultButton);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.Name = "UpdateFault";
+            this.Load += new System.EventHandler(this.UpdateFault_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
   }
 }

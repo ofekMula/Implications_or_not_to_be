@@ -69,87 +69,123 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Inquiry));
-      this.linkLabel1 = new LinkLabel();
-      this.saveDirectory = new Button();
-      this.openFileDialog1 = new OpenFileDialog();
-      this.textBox1 = new TextBox();
-      this.label2 = new Label();
-      this.label1 = new Label();
-      this.button1 = new Button();
-      this.button2 = new Button();
-      this.SuspendLayout();
-      this.linkLabel1.AutoSize = true;
-      this.linkLabel1.Location = new Point(863, 336);
-      this.linkLabel1.Name = "linkLabel1";
-      this.linkLabel1.Size = new Size(98, 13);
-      this.linkLabel1.TabIndex = 0;
-      this.linkLabel1.TabStop = true;
-      this.linkLabel1.Text = "תחקיר תקרית 10.9";
-      this.linkLabel1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-      this.saveDirectory.Location = new Point(26, 307);
-      this.saveDirectory.Name = "saveDirectory";
-      this.saveDirectory.Size = new Size(75, 23);
-      this.saveDirectory.TabIndex = 1;
-      this.saveDirectory.Text = "בחירה";
-      this.saveDirectory.UseVisualStyleBackColor = true;
-      this.saveDirectory.Click += new EventHandler(this.button1_Click);
-      this.openFileDialog1.FileName = "openFileDialog1";
-      this.textBox1.Location = new Point(468, 207);
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new Size(493, 20);
-      this.textBox1.TabIndex = 2;
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 39.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = Color.White;
-      this.label2.Location = new Point(571, 9);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(401, 63);
-      this.label2.TabIndex = 34;
-      this.label2.Text = "העלאת קבצי מידע";
-      this.label1.AutoSize = true;
-      this.label1.BackColor = Color.Transparent;
-      this.label1.Font = new Font("Century Gothic", 26.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label1.ForeColor = Color.White;
-      this.label1.Location = new Point(695, 135);
-      this.label1.Name = "label1";
-      this.label1.RightToLeft = RightToLeft.Yes;
-      this.label1.Size = new Size(273, 41);
-      this.label1.TabIndex = 35;
-      this.label1.Text = "בחר קובץ להעלאה";
-      this.button1.Location = new Point(859, 247);
-      this.button1.Name = "button1";
-      this.button1.Size = new Size(102, 47);
-      this.button1.TabIndex = 36;
-      this.button1.Text = "העלאה למאגר";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new EventHandler(this.button1_Click_1);
-      this.button2.Location = new Point(387, 207);
-      this.button2.Name = "button2";
-      this.button2.Size = new Size(75, 23);
-      this.button2.TabIndex = 37;
-      this.button2.Text = "בחירה";
-      this.button2.UseVisualStyleBackColor = true;
-      this.button2.Click += new EventHandler(this.button2_Click);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
-      this.ClientSize = new Size(984, 561);
-      this.Controls.Add((Control) this.button2);
-      this.Controls.Add((Control) this.button1);
-      this.Controls.Add((Control) this.label1);
-      this.Controls.Add((Control) this.label2);
-      this.Controls.Add((Control) this.textBox1);
-      this.Controls.Add((Control) this.saveDirectory);
-      this.Controls.Add((Control) this.linkLabel1);
-      this.Name = nameof (Inquiry);
-      this.Text = "'";
-      this.FormClosed += new FormClosedEventHandler(this.Inquiry_FormClosed);
-      this.Load += new EventHandler(this.button1_Click);
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inquiry));
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.saveDirectory = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(1294, 517);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(134, 20);
+            this.linkLabel1.TabIndex = 0;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "תחקיר תקרית 10.9";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // saveDirectory
+            // 
+            this.saveDirectory.Location = new System.Drawing.Point(39, 472);
+            this.saveDirectory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.saveDirectory.Name = "saveDirectory";
+            this.saveDirectory.Size = new System.Drawing.Size(112, 35);
+            this.saveDirectory.TabIndex = 1;
+            this.saveDirectory.Text = "בחירה";
+            this.saveDirectory.UseVisualStyleBackColor = true;
+            this.saveDirectory.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(702, 318);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(738, 26);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(856, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(616, 93);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "העלאת קבצי מידע";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(1042, 208);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(407, 63);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "בחר קובץ להעלאה";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1288, 380);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 72);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "העלאה למאגר";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(580, 318);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 35);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "בחירה";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Inquiry
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1476, 863);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.saveDirectory);
+            this.Controls.Add(this.linkLabel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "Inquiry";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Inquiry_FormClosed);
+            this.Load += new System.EventHandler(this.button1_Click);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
   }
 }

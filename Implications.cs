@@ -283,7 +283,7 @@ namespace AlertsProject
       DataGridViewCellStyle gridViewCellStyle4 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle5 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle6 = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Implications));
+      ComponentResourceManager resources = new ComponentResourceManager(typeof (Implications));
       this.label3 = new Label();
       this.componentsNameList = new ComboBox();
       this.label2 = new Label();
@@ -514,14 +514,14 @@ namespace AlertsProject
       this.label8.Text = "רכיבים מושפעים:";
       this.pictureBox2.BackColor = Color.Transparent;
       this.pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-      this.pictureBox2.Image = (Image) componentResourceManager.GetObject("pictureBox2.Image");
+      this.pictureBox2.Image = (Image) resources.GetObject("pictureBox2.Image");
       this.pictureBox2.Location = new Point(43, 59);
       this.pictureBox2.Name = "pictureBox2";
       this.pictureBox2.Size = new Size(267, 195);
       this.pictureBox2.TabIndex = 46;
       this.pictureBox2.TabStop = false;
       this.menuPanel.BackColor = Color.Transparent;
-      this.menuPanel.BackgroundImage = (Image) componentResourceManager.GetObject("menuPanel.BackgroundImage");
+      this.menuPanel.BackgroundImage = (Image) resources.GetObject("menuPanel.BackgroundImage");
       this.menuPanel.BackgroundImageLayout = ImageLayout.Center;
       this.menuPanel.Controls.Add((Control) this.statisticsButton);
       this.menuPanel.Controls.Add((Control) this.slideMenuButton);
@@ -544,7 +544,7 @@ namespace AlertsProject
       this.statisticsButton.FlatStyle = FlatStyle.Flat;
       this.statisticsButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.statisticsButton.ForeColor = Color.Black;
-      this.statisticsButton.Image = (Image) componentResourceManager.GetObject("statisticsButton.Image");
+      this.statisticsButton.Image = (Image) resources.GetObject("statisticsButton.Image");
       this.statisticsButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.statisticsButton.Location = new Point(0, 423);
       this.statisticsButton.Name = "statisticsButton";
@@ -562,7 +562,7 @@ namespace AlertsProject
       this.slideMenuButton.FlatStyle = FlatStyle.Flat;
       this.slideMenuButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.slideMenuButton.ForeColor = Color.Black;
-      this.slideMenuButton.Image = (Image) componentResourceManager.GetObject("slideMenuButton.Image");
+      this.slideMenuButton.Image = (Image) resources.GetObject("slideMenuButton.Image");
       this.slideMenuButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.slideMenuButton.Location = new Point(0, 0);
       this.slideMenuButton.Name = "slideMenuButton";
@@ -574,7 +574,7 @@ namespace AlertsProject
       this.slideMenuButton.UseVisualStyleBackColor = false;
       this.slideMenuButton.Click += new EventHandler(this.slideMenuButton_Click);
       this.pictureBox1.BackColor = Color.Transparent;
-      this.pictureBox1.BackgroundImage = (Image) componentResourceManager.GetObject("pictureBox1.BackgroundImage");
+      this.pictureBox1.BackgroundImage = (Image) resources.GetObject("pictureBox1.BackgroundImage");
       this.pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
       this.pictureBox1.Location = new Point(-17, 70);
       this.pictureBox1.Name = "pictureBox1";
@@ -587,7 +587,7 @@ namespace AlertsProject
       this.addNewComponentButton.FlatStyle = FlatStyle.Flat;
       this.addNewComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.addNewComponentButton.ForeColor = Color.Black;
-      this.addNewComponentButton.Image = (Image) componentResourceManager.GetObject("addNewComponentButton.Image");
+      this.addNewComponentButton.Image = (Image) resources.GetObject("addNewComponentButton.Image");
       this.addNewComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.addNewComponentButton.Location = new Point(0, 171);
       this.addNewComponentButton.Name = "addNewComponentButton";
@@ -604,7 +604,7 @@ namespace AlertsProject
       this.updateComponentButton.FlatStyle = FlatStyle.Flat;
       this.updateComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.updateComponentButton.ForeColor = Color.Black;
-      this.updateComponentButton.Image = (Image) componentResourceManager.GetObject("updateComponentButton.Image");
+      this.updateComponentButton.Image = (Image) resources.GetObject("updateComponentButton.Image");
       this.updateComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.updateComponentButton.Location = new Point(0, 235);
       this.updateComponentButton.Name = "updateComponentButton";
@@ -621,7 +621,7 @@ namespace AlertsProject
       this.advancedSearchButton.FlatStyle = FlatStyle.Flat;
       this.advancedSearchButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.advancedSearchButton.ForeColor = Color.Black;
-      this.advancedSearchButton.Image = (Image) componentResourceManager.GetObject("advancedSearchButton.Image");
+      this.advancedSearchButton.Image = (Image) resources.GetObject("advancedSearchButton.Image");
       this.advancedSearchButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.advancedSearchButton.Location = new Point(0, 357);
       this.advancedSearchButton.Name = "advancedSearchButton";
@@ -638,7 +638,7 @@ namespace AlertsProject
       this.deleteComponentButton.FlatStyle = FlatStyle.Flat;
       this.deleteComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.deleteComponentButton.ForeColor = Color.Black;
-      this.deleteComponentButton.Image = (Image) componentResourceManager.GetObject("deleteComponentButton.Image");
+      this.deleteComponentButton.Image = (Image) resources.GetObject("deleteComponentButton.Image");
       this.deleteComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.deleteComponentButton.Location = new Point(0, 296);
       this.deleteComponentButton.Name = "deleteComponentButton";
@@ -655,7 +655,7 @@ namespace AlertsProject
       this.logOutButton.FlatStyle = FlatStyle.Flat;
       this.logOutButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       this.logOutButton.ForeColor = Color.Black;
-      this.logOutButton.Image = (Image) componentResourceManager.GetObject("logOutButton.Image");
+      this.logOutButton.Image = (Image) resources.GetObject("logOutButton.Image");
       this.logOutButton.ImageAlign = ContentAlignment.MiddleLeft;
       this.logOutButton.Location = new Point(0, 484);
       this.logOutButton.Name = "logOutButton";
@@ -669,7 +669,7 @@ namespace AlertsProject
       this.AutoScaleDimensions = new SizeF(6f, 13f);
       this.AutoScaleMode = AutoScaleMode.Font;
       this.BackColor = Color.White;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
+      this.BackgroundImage = (Image) resources.GetObject("$this.BackgroundImage");
       this.BackgroundImageLayout = ImageLayout.Stretch;
       this.ClientSize = new Size(1084, 661);
       this.Controls.Add((Control) this.label8);
@@ -690,10 +690,8 @@ namespace AlertsProject
       this.Controls.Add((Control) this.label3);
       this.DoubleBuffered = true;
       this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Icon = (Icon) resources.GetObject("$this.Icon");
       this.MaximizeBox = false;
-      this.Name = nameof (Implications);
-      this.Text = "S";
       this.FormClosed += new FormClosedEventHandler(this.Implications_FormClosed);
       this.Load += new EventHandler(this.Implications_Load);
       ((ISupportInitialize) this.affectedComponentsView).EndInit();

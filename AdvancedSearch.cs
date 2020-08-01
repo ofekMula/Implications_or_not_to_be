@@ -130,164 +130,221 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      this.components = (IContainer) new Container();
-      DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (AdvancedSearch));
-      this.showFullList = new Button();
-      this.searchComponentsButton = new Button();
-      this.label3 = new Label();
-      this.componentsView = new DataGridView();
-      this.chooseHeader = new DataGridViewCheckBoxColumn();
-      this.componentNameHeader = new DataGridViewTextBoxColumn();
-      this.componentImplicationsHeader = new DataGridViewTextBoxColumn();
-      this.label2 = new Label();
-      this.label4 = new Label();
-      this.searchByWordTextBox = new TextBox();
-      this.searchByChoiceButton = new Button();
-      this.contextMenuStrip1 = new ContextMenuStrip(this.components);
-      this.expandedDataToolStripMenuItem = new ToolStripMenuItem();
-      ((ISupportInitialize) this.componentsView).BeginInit();
-      this.contextMenuStrip1.SuspendLayout();
-      this.SuspendLayout();
-      this.showFullList.BackColor = SystemColors.Control;
-      this.showFullList.Font = new Font("Century Gothic", 15.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.showFullList.ForeColor = Color.Black;
-      this.showFullList.Location = new Point(231, 177);
-      this.showFullList.Name = "showFullList";
-      this.showFullList.Size = new Size(158, 30);
-      this.showFullList.TabIndex = 21;
-      this.showFullList.Text = "הצגת כול הרכיבים";
-      this.showFullList.UseVisualStyleBackColor = false;
-      this.showFullList.Click += new EventHandler(this.showFullList_Click);
-      this.searchComponentsButton.Font = new Font("Century Gothic", 14.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.searchComponentsButton.Location = new Point(406, 177);
-      this.searchComponentsButton.Name = "searchComponentsButton";
-      this.searchComponentsButton.Size = new Size(81, 30);
-      this.searchComponentsButton.TabIndex = 20;
-      this.searchComponentsButton.Text = "חיפוש";
-      this.searchComponentsButton.UseVisualStyleBackColor = true;
-      this.searchComponentsButton.Click += new EventHandler(this.searchComponentsButton_Click);
-      this.label3.AutoSize = true;
-      this.label3.BackColor = Color.Transparent;
-      this.label3.Font = new Font("Century Gothic", 24.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label3.ForeColor = Color.Black;
-      this.label3.Location = new Point(679, 98);
-      this.label3.Name = "label3";
-      this.label3.RightToLeft = RightToLeft.Yes;
-      this.label3.Size = new Size(289, 39);
-      this.label3.TabIndex = 17;
-      this.label3.Text = "בחירת רכיב/ים לתצוגה:";
-      this.componentsView.AllowUserToAddRows = false;
-      this.componentsView.AllowUserToDeleteRows = false;
-      this.componentsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-      gridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-      gridViewCellStyle1.BackColor = SystemColors.Control;
-      gridViewCellStyle1.Font = new Font("Century Gothic", 14.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      gridViewCellStyle1.ForeColor = SystemColors.WindowText;
-      gridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-      gridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-      gridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-      this.componentsView.ColumnHeadersDefaultCellStyle = gridViewCellStyle1;
-      this.componentsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.componentsView.Columns.AddRange((DataGridViewColumn) this.chooseHeader, (DataGridViewColumn) this.componentNameHeader, (DataGridViewColumn) this.componentImplicationsHeader);
-      gridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-      gridViewCellStyle2.BackColor = SystemColors.Window;
-      gridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 177);
-      gridViewCellStyle2.ForeColor = SystemColors.ControlText;
-      gridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-      gridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-      gridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-      this.componentsView.DefaultCellStyle = gridViewCellStyle2;
-      this.componentsView.Location = new Point(231, 246);
-      this.componentsView.Name = "componentsView";
-      this.componentsView.RightToLeft = RightToLeft.Yes;
-      this.componentsView.RowHeadersVisible = false;
-      this.componentsView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-      this.componentsView.Size = new Size(730, 222);
-      this.componentsView.TabIndex = 16;
-      this.componentsView.CellMouseUp += new DataGridViewCellMouseEventHandler(this.componentsView_CellMouseUp);
-      this.componentsView.MouseClick += new MouseEventHandler(this.componentsView_MouseClick);
-      this.chooseHeader.HeaderText = "בחירה";
-      this.chooseHeader.Name = "chooseHeader";
-      this.chooseHeader.SortMode = DataGridViewColumnSortMode.Automatic;
-      this.chooseHeader.Width = 70;
-      this.componentNameHeader.HeaderText = "שם הרכיב";
-      this.componentNameHeader.Name = "componentNameHeader";
-      this.componentNameHeader.Resizable = DataGridViewTriState.True;
-      this.componentNameHeader.Width = 150;
-      this.componentImplicationsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-      this.componentImplicationsHeader.HeaderText = "תאור הרכיב";
-      this.componentImplicationsHeader.Name = "componentImplicationsHeader";
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 39.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = Color.Black;
-      this.label2.Location = new Point(657, 9);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(315, 63);
-      this.label2.TabIndex = 15;
-      this.label2.Text = "חיפוש מתקדם";
-      this.label4.AutoSize = true;
-      this.label4.BackColor = Color.Transparent;
-      this.label4.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label4.ForeColor = Color.Black;
-      this.label4.Location = new Point(750, 172);
-      this.label4.Name = "label4";
-      this.label4.RightToLeft = RightToLeft.Yes;
-      this.label4.Size = new Size(216, 30);
-      this.label4.TabIndex = 22;
-      this.label4.Text = "חיפוש רכיב לפי מילה:";
-      this.searchByWordTextBox.Font = new Font("Century Gothic", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.searchByWordTextBox.Location = new Point(493, 177);
-      this.searchByWordTextBox.Name = "searchByWordTextBox";
-      this.searchByWordTextBox.RightToLeft = RightToLeft.Yes;
-      this.searchByWordTextBox.Size = new Size(251, 27);
-      this.searchByWordTextBox.TabIndex = 23;
-      this.searchByChoiceButton.Font = new Font("Century Gothic", 17.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.searchByChoiceButton.ForeColor = Color.Black;
-      this.searchByChoiceButton.Location = new Point(783, 492);
-      this.searchByChoiceButton.Name = "searchByChoiceButton";
-      this.searchByChoiceButton.Size = new Size(178, 33);
-      this.searchByChoiceButton.TabIndex = 24;
-      this.searchByChoiceButton.Text = "הצגה לפי בחירה";
-      this.searchByChoiceButton.UseVisualStyleBackColor = true;
-      this.searchByChoiceButton.Click += new EventHandler(this.searchByChoiceButton_Click);
-      this.contextMenuStrip1.Items.AddRange(new ToolStripItem[1]
-      {
-        (ToolStripItem) this.expandedDataToolStripMenuItem
-      });
-      this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new Size(153, 26);
-      this.expandedDataToolStripMenuItem.Name = "expandedDataToolStripMenuItem";
-      this.expandedDataToolStripMenuItem.RightToLeft = RightToLeft.Yes;
-      this.expandedDataToolStripMenuItem.Size = new Size(152, 22);
-      this.expandedDataToolStripMenuItem.Text = "פרוט על הרכיב";
-      this.expandedDataToolStripMenuItem.Click += new EventHandler(this.expandedDataToolStripMenuItem_Click);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.ClientSize = new Size(984, 561);
-      this.Controls.Add((Control) this.searchByChoiceButton);
-      this.Controls.Add((Control) this.searchByWordTextBox);
-      this.Controls.Add((Control) this.label4);
-      this.Controls.Add((Control) this.showFullList);
-      this.Controls.Add((Control) this.searchComponentsButton);
-      this.Controls.Add((Control) this.label3);
-      this.Controls.Add((Control) this.componentsView);
-      this.Controls.Add((Control) this.label2);
-      this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
-      this.MaximizeBox = false;
-      this.Name = nameof (AdvancedSearch);
-      this.Text = nameof (AdvancedSearch);
-      this.Load += new EventHandler(this.AdvancedSearch_Load);
-      ((ISupportInitialize) this.componentsView).EndInit();
-      this.contextMenuStrip1.ResumeLayout(false);
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSearch));
+            this.showFullList = new System.Windows.Forms.Button();
+            this.searchComponentsButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.componentsView = new System.Windows.Forms.DataGridView();
+            this.chooseHeader = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.componentNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.componentImplicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.searchByWordTextBox = new System.Windows.Forms.TextBox();
+            this.searchByChoiceButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.expandedDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.componentsView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // showFullList
+            // 
+            this.showFullList.BackColor = System.Drawing.SystemColors.Control;
+            this.showFullList.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showFullList.ForeColor = System.Drawing.Color.Black;
+            this.showFullList.Location = new System.Drawing.Point(346, 272);
+            this.showFullList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.showFullList.Name = "showFullList";
+            this.showFullList.Size = new System.Drawing.Size(237, 46);
+            this.showFullList.TabIndex = 21;
+            this.showFullList.Text = "הצגת כול הרכיבים";
+            this.showFullList.UseVisualStyleBackColor = false;
+            this.showFullList.Click += new System.EventHandler(this.showFullList_Click);
+            // 
+            // searchComponentsButton
+            // 
+            this.searchComponentsButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchComponentsButton.Location = new System.Drawing.Point(609, 272);
+            this.searchComponentsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchComponentsButton.Name = "searchComponentsButton";
+            this.searchComponentsButton.Size = new System.Drawing.Size(122, 46);
+            this.searchComponentsButton.TabIndex = 20;
+            this.searchComponentsButton.Text = "חיפוש";
+            this.searchComponentsButton.UseVisualStyleBackColor = true;
+            this.searchComponentsButton.Click += new System.EventHandler(this.searchComponentsButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(1018, 151);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(479, 59);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "בחירת רכיב/ים לתצוגה:";
+            // 
+            // componentsView
+            // 
+            this.componentsView.AllowUserToAddRows = false;
+            this.componentsView.AllowUserToDeleteRows = false;
+            this.componentsView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.componentsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.componentsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.componentsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chooseHeader,
+            this.componentNameHeader,
+            this.componentImplicationsHeader});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.componentsView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.componentsView.Location = new System.Drawing.Point(346, 378);
+            this.componentsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentsView.Name = "componentsView";
+            this.componentsView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.componentsView.RowHeadersVisible = false;
+            this.componentsView.RowHeadersWidth = 62;
+            this.componentsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.componentsView.Size = new System.Drawing.Size(1095, 342);
+            this.componentsView.TabIndex = 16;
+            this.componentsView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.componentsView_CellMouseUp);
+            this.componentsView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.componentsView_MouseClick);
+            // 
+            // chooseHeader
+            // 
+            this.chooseHeader.HeaderText = "בחירה";
+            this.chooseHeader.MinimumWidth = 8;
+            this.chooseHeader.Name = "chooseHeader";
+            this.chooseHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chooseHeader.Width = 70;
+            // 
+            // componentNameHeader
+            // 
+            this.componentNameHeader.HeaderText = "שם הרכיב";
+            this.componentNameHeader.MinimumWidth = 8;
+            this.componentNameHeader.Name = "componentNameHeader";
+            this.componentNameHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.componentNameHeader.Width = 150;
+            // 
+            // componentImplicationsHeader
+            // 
+            this.componentImplicationsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.componentImplicationsHeader.HeaderText = "תאור הרכיב";
+            this.componentImplicationsHeader.MinimumWidth = 8;
+            this.componentImplicationsHeader.Name = "componentImplicationsHeader";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(986, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(483, 93);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "חיפוש מתקדם";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(1125, 265);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(301, 43);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "חיפוש רכיב לפי מילה:";
+            // 
+            // searchByWordTextBox
+            // 
+            this.searchByWordTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchByWordTextBox.Location = new System.Drawing.Point(740, 272);
+            this.searchByWordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchByWordTextBox.Name = "searchByWordTextBox";
+            this.searchByWordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.searchByWordTextBox.Size = new System.Drawing.Size(374, 37);
+            this.searchByWordTextBox.TabIndex = 23;
+            // 
+            // searchByChoiceButton
+            // 
+            this.searchByChoiceButton.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchByChoiceButton.ForeColor = System.Drawing.Color.Black;
+            this.searchByChoiceButton.Location = new System.Drawing.Point(1174, 757);
+            this.searchByChoiceButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchByChoiceButton.Name = "searchByChoiceButton";
+            this.searchByChoiceButton.Size = new System.Drawing.Size(267, 51);
+            this.searchByChoiceButton.TabIndex = 24;
+            this.searchByChoiceButton.Text = "הצגה לפי בחירה";
+            this.searchByChoiceButton.UseVisualStyleBackColor = true;
+            this.searchByChoiceButton.Click += new System.EventHandler(this.searchByChoiceButton_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.expandedDataToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(201, 36);
+            // 
+            // expandedDataToolStripMenuItem
+            // 
+            this.expandedDataToolStripMenuItem.Name = "expandedDataToolStripMenuItem";
+            this.expandedDataToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.expandedDataToolStripMenuItem.Size = new System.Drawing.Size(200, 32);
+            this.expandedDataToolStripMenuItem.Text = "פרוט על הרכיב";
+            this.expandedDataToolStripMenuItem.Click += new System.EventHandler(this.expandedDataToolStripMenuItem_Click);
+            // 
+            // AdvancedSearch
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1476, 863);
+            this.Controls.Add(this.searchByChoiceButton);
+            this.Controls.Add(this.searchByWordTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.showFullList);
+            this.Controls.Add(this.searchComponentsButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.componentsView);
+            this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.Name = "AdvancedSearch";
+            this.Load += new System.EventHandler(this.AdvancedSearch_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.componentsView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
   }
 }

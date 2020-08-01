@@ -106,143 +106,194 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      DataGridViewCellStyle gridViewCellStyle = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (DeleteComponent));
-      this.label2 = new Label();
-      this.componentsView = new DataGridView();
-      this.chooseHeader = new DataGridViewCheckBoxColumn();
-      this.componentNameHeader = new DataGridViewTextBoxColumn();
-      this.componentImplicationsHeader = new DataGridViewTextBoxColumn();
-      this.label3 = new Label();
-      this.label1 = new Label();
-      this.SearchWord = new TextBox();
-      this.searchComponentsButton = new Button();
-      this.showFullList = new Button();
-      this.deleteButton = new Button();
-      ((ISupportInitialize) this.componentsView).BeginInit();
-      this.SuspendLayout();
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 39.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = Color.Black;
-      this.label2.Location = new Point(495, 9);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(377, 63);
-      this.label2.TabIndex = 4;
-      this.label2.Text = "מחיקת רכיב קיים";
-      this.label2.Click += new EventHandler(this.label2_Click);
-      this.componentsView.AllowUserToAddRows = false;
-      this.componentsView.AllowUserToDeleteRows = false;
-      gridViewCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-      gridViewCellStyle.BackColor = SystemColors.Control;
-      gridViewCellStyle.Font = new Font("Century Gothic", 14.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      gridViewCellStyle.ForeColor = SystemColors.WindowText;
-      gridViewCellStyle.SelectionBackColor = SystemColors.Highlight;
-      gridViewCellStyle.SelectionForeColor = SystemColors.HighlightText;
-      gridViewCellStyle.WrapMode = DataGridViewTriState.True;
-      this.componentsView.ColumnHeadersDefaultCellStyle = gridViewCellStyle;
-      this.componentsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.componentsView.Columns.AddRange((DataGridViewColumn) this.chooseHeader, (DataGridViewColumn) this.componentNameHeader, (DataGridViewColumn) this.componentImplicationsHeader);
-      this.componentsView.Location = new Point(71, 251);
-      this.componentsView.Name = "componentsView";
-      this.componentsView.RightToLeft = RightToLeft.Yes;
-      this.componentsView.RowHeadersVisible = false;
-      this.componentsView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-      this.componentsView.Size = new Size(790, 251);
-      this.componentsView.TabIndex = 5;
-      this.componentsView.CellContentClick += new DataGridViewCellEventHandler(this.componentsView_CellContentClick);
-      this.chooseHeader.HeaderText = "בחירה";
-      this.chooseHeader.Name = "chooseHeader";
-      this.chooseHeader.SortMode = DataGridViewColumnSortMode.Automatic;
-      this.chooseHeader.Width = 70;
-      this.componentNameHeader.HeaderText = "שם הרכיב";
-      this.componentNameHeader.MinimumWidth = 2;
-      this.componentNameHeader.Name = "componentNameHeader";
-      this.componentNameHeader.Resizable = DataGridViewTriState.True;
-      this.componentNameHeader.Width = 150;
-      this.componentImplicationsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-      this.componentImplicationsHeader.HeaderText = "תאור הרכיב";
-      this.componentImplicationsHeader.Name = "componentImplicationsHeader";
-      this.label3.AutoSize = true;
-      this.label3.BackColor = Color.Transparent;
-      this.label3.Font = new Font("Century Gothic", 26.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label3.ForeColor = Color.Black;
-      this.label3.Location = new Point(523, 111);
-      this.label3.Name = "label3";
-      this.label3.RightToLeft = RightToLeft.Yes;
-      this.label3.Size = new Size(345, 41);
-      this.label3.TabIndex = 10;
-      this.label3.Text = "בחירת רכיב/ים למחיקה:";
-      this.label3.Click += new EventHandler(this.label3_Click);
-      this.label1.AutoSize = true;
-      this.label1.BackColor = Color.Transparent;
-      this.label1.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label1.ForeColor = Color.Black;
-      this.label1.Location = new Point(650, 179);
-      this.label1.Name = "label1";
-      this.label1.RightToLeft = RightToLeft.Yes;
-      this.label1.Size = new Size(216, 30);
-      this.label1.TabIndex = 11;
-      this.label1.Text = "חיפוש רכיב לפי מילה:";
-      this.label1.Click += new EventHandler(this.label1_Click);
-      this.SearchWord.Font = new Font("Century Gothic", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.SearchWord.Location = new Point(393, 179);
-      this.SearchWord.Name = "SearchWord";
-      this.SearchWord.RightToLeft = RightToLeft.Yes;
-      this.SearchWord.Size = new Size(251, 27);
-      this.SearchWord.TabIndex = 12;
-      this.SearchWord.TextChanged += new EventHandler(this.SearchWord_TextChanged);
-      this.searchComponentsButton.Font = new Font("Century Gothic", 14.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.searchComponentsButton.Location = new Point(294, 176);
-      this.searchComponentsButton.Name = "searchComponentsButton";
-      this.searchComponentsButton.Size = new Size(81, 30);
-      this.searchComponentsButton.TabIndex = 13;
-      this.searchComponentsButton.Text = "חיפוש";
-      this.searchComponentsButton.UseVisualStyleBackColor = true;
-      this.searchComponentsButton.Click += new EventHandler(this.searchComponentsButton_Click);
-      this.showFullList.Font = new Font("Century Gothic", 14.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.showFullList.Location = new Point(71, 176);
-      this.showFullList.Name = "showFullList";
-      this.showFullList.Size = new Size(165, 30);
-      this.showFullList.TabIndex = 14;
-      this.showFullList.Text = "הצגת הרשימה המלאה";
-      this.showFullList.UseVisualStyleBackColor = true;
-      this.showFullList.Click += new EventHandler(this.showFullList_Click);
-      this.deleteButton.Cursor = Cursors.Hand;
-      this.deleteButton.FlatStyle = FlatStyle.System;
-      this.deleteButton.Font = new Font("Century Gothic", 17.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.deleteButton.Location = new Point(724, 508);
-      this.deleteButton.Name = "deleteButton";
-      this.deleteButton.RightToLeft = RightToLeft.Yes;
-      this.deleteButton.Size = new Size(137, 31);
-      this.deleteButton.TabIndex = 15;
-      this.deleteButton.Text = "מחיקת רכיב";
-      this.deleteButton.UseVisualStyleBackColor = true;
-      this.deleteButton.Click += new EventHandler(this.deleteButton_Click);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.ClientSize = new Size(884, 561);
-      this.Controls.Add((Control) this.deleteButton);
-      this.Controls.Add((Control) this.showFullList);
-      this.Controls.Add((Control) this.searchComponentsButton);
-      this.Controls.Add((Control) this.SearchWord);
-      this.Controls.Add((Control) this.label1);
-      this.Controls.Add((Control) this.label3);
-      this.Controls.Add((Control) this.componentsView);
-      this.Controls.Add((Control) this.label2);
-      this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
-      this.MaximizeBox = false;
-      this.Name = nameof (DeleteComponent);
-      this.Text = "DeleteTrial";
-      this.FormClosed += new FormClosedEventHandler(this.DeleteTrial_FormClosed);
-      this.Load += new EventHandler(this.DeleteTrial_Load);
-      ((ISupportInitialize) this.componentsView).EndInit();
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteComponent));
+            this.label2 = new System.Windows.Forms.Label();
+            this.componentsView = new System.Windows.Forms.DataGridView();
+            this.chooseHeader = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.componentNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.componentImplicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SearchWord = new System.Windows.Forms.TextBox();
+            this.searchComponentsButton = new System.Windows.Forms.Button();
+            this.showFullList = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.componentsView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(742, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(577, 93);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "מחיקת רכיב קיים";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // componentsView
+            // 
+            this.componentsView.AllowUserToAddRows = false;
+            this.componentsView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.componentsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.componentsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.componentsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chooseHeader,
+            this.componentNameHeader,
+            this.componentImplicationsHeader});
+            this.componentsView.Location = new System.Drawing.Point(106, 386);
+            this.componentsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentsView.Name = "componentsView";
+            this.componentsView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.componentsView.RowHeadersVisible = false;
+            this.componentsView.RowHeadersWidth = 62;
+            this.componentsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.componentsView.Size = new System.Drawing.Size(1185, 386);
+            this.componentsView.TabIndex = 5;
+            this.componentsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.componentsView_CellContentClick);
+            // 
+            // chooseHeader
+            // 
+            this.chooseHeader.HeaderText = "בחירה";
+            this.chooseHeader.MinimumWidth = 8;
+            this.chooseHeader.Name = "chooseHeader";
+            this.chooseHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chooseHeader.Width = 70;
+            // 
+            // componentNameHeader
+            // 
+            this.componentNameHeader.HeaderText = "שם הרכיב";
+            this.componentNameHeader.MinimumWidth = 2;
+            this.componentNameHeader.Name = "componentNameHeader";
+            this.componentNameHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.componentNameHeader.Width = 150;
+            // 
+            // componentImplicationsHeader
+            // 
+            this.componentImplicationsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.componentImplicationsHeader.HeaderText = "תאור הרכיב";
+            this.componentImplicationsHeader.MinimumWidth = 8;
+            this.componentImplicationsHeader.Name = "componentImplicationsHeader";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(784, 171);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(518, 63);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "בחירת רכיב/ים למחיקה:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(975, 275);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(301, 43);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "חיפוש רכיב לפי מילה:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // SearchWord
+            // 
+            this.SearchWord.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchWord.Location = new System.Drawing.Point(590, 275);
+            this.SearchWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SearchWord.Name = "SearchWord";
+            this.SearchWord.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SearchWord.Size = new System.Drawing.Size(374, 37);
+            this.SearchWord.TabIndex = 12;
+            this.SearchWord.TextChanged += new System.EventHandler(this.SearchWord_TextChanged);
+            // 
+            // searchComponentsButton
+            // 
+            this.searchComponentsButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchComponentsButton.Location = new System.Drawing.Point(441, 271);
+            this.searchComponentsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchComponentsButton.Name = "searchComponentsButton";
+            this.searchComponentsButton.Size = new System.Drawing.Size(122, 46);
+            this.searchComponentsButton.TabIndex = 13;
+            this.searchComponentsButton.Text = "חיפוש";
+            this.searchComponentsButton.UseVisualStyleBackColor = true;
+            this.searchComponentsButton.Click += new System.EventHandler(this.searchComponentsButton_Click);
+            // 
+            // showFullList
+            // 
+            this.showFullList.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showFullList.Location = new System.Drawing.Point(106, 271);
+            this.showFullList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.showFullList.Name = "showFullList";
+            this.showFullList.Size = new System.Drawing.Size(248, 46);
+            this.showFullList.TabIndex = 14;
+            this.showFullList.Text = "הצגת הרשימה המלאה";
+            this.showFullList.UseVisualStyleBackColor = true;
+            this.showFullList.Click += new System.EventHandler(this.showFullList_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(1086, 782);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.deleteButton.Size = new System.Drawing.Size(206, 48);
+            this.deleteButton.TabIndex = 15;
+            this.deleteButton.Text = "מחיקת רכיב";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // DeleteComponent
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.showFullList);
+            this.Controls.Add(this.searchComponentsButton);
+            this.Controls.Add(this.SearchWord);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.componentsView);
+            this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.Name = "DeleteComponent";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DeleteTrial_FormClosed);
+            this.Load += new System.EventHandler(this.DeleteTrial_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.componentsView)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
   }
 }

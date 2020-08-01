@@ -32,13 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CircularProgressBar" />
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
-    <Reference Include="WinFormAnimation" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddComponent.cs">
@@ -93,27 +97,56 @@
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.cs" />
-    <Compile Include="Properties\Settings.cs" />
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AddComponent.resx" />
-    <EmbeddedResource Include="AddFault.resx" />
-    <EmbeddedResource Include="AddImageUrl.resx" />
-    <EmbeddedResource Include="AdvancedSearch.resx" />
-    <EmbeddedResource Include="Authentication.resx" />
-    <EmbeddedResource Include="DeleteComponent.resx" />
-    <EmbeddedResource Include="Features.resx" />
-    <EmbeddedResource Include="FileLoader.resx" />
-    <EmbeddedResource Include="FilesListWindow.resx" />
-    <EmbeddedResource Include="Implications.resx" />
-    <EmbeddedResource Include="Inquiry.resx" />
-    <EmbeddedResource Include="MyPanel.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx" />
-    <EmbeddedResource Include="UpdateComponent.resx" />
-    <EmbeddedResource Include="UpdateFault.resx" />
-    <EmbeddedResource Include="UserControl1.resx" />
+    <EmbeddedResource Include="AddComponent.resx">
+      <DependentUpon>AddComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFault.resx">
+      <DependentUpon>AddFault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddImageUrl.resx">
+      <DependentUpon>AddImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedSearch.resx">
+      <DependentUpon>AdvancedSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authentication.resx">
+      <DependentUpon>Authentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteComponent.resx">
+      <DependentUpon>DeleteComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features.resx">
+      <DependentUpon>Features.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileLoader.resx">
+      <DependentUpon>FileLoader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Implications.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Implications.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry.resx">
+      <DependentUpon>Inquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateComponent.resx">
+      <DependentUpon>UpdateComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateFault.resx">
+      <DependentUpon>UpdateFault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserControl1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

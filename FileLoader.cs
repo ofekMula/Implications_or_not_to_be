@@ -114,94 +114,125 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (FileLoader));
-      this.label2 = new Label();
-      this.label1 = new Label();
-      this.fileDirectoryTextBox = new TextBox();
-      this.fileChoserButton = new Button();
-      this.loadExistsDbButton = new Button();
-      this.loadNewDbButton = new Button();
-      this.openFileDialog1 = new OpenFileDialog();
-      this.SuspendLayout();
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 48f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = Color.Black;
-      this.label2.Location = new Point(290, 9);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(482, 77);
-      this.label2.TabIndex = 4;
-      this.label2.Text = "טעינת בסיס נתונים";
-      this.label2.Click += new EventHandler(this.label2_Click);
-      this.label1.AutoSize = true;
-      this.label1.BackColor = Color.Transparent;
-      this.label1.Font = new Font("Century Gothic", 26.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label1.ForeColor = Color.Black;
-      this.label1.Location = new Point(453, 156);
-      this.label1.Name = "label1";
-      this.label1.RightToLeft = RightToLeft.Yes;
-      this.label1.Size = new Size(313, 41);
-      this.label1.TabIndex = 5;
-      this.label1.Text = "נא לבחור מסד נתונים:";
-      this.label1.Click += new EventHandler(this.label1_Click);
-      this.fileDirectoryTextBox.Font = new Font("Century Gothic", 11.25f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.fileDirectoryTextBox.Location = new Point(221, 213);
-      this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
-      this.fileDirectoryTextBox.Size = new Size(538, 26);
-      this.fileDirectoryTextBox.TabIndex = 6;
-      this.fileDirectoryTextBox.TextChanged += new EventHandler(this.fileDirectoryTextBox_TextChanged);
-      this.fileChoserButton.Font = new Font("Century Gothic", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.fileChoserButton.Location = new Point(107, 213);
-      this.fileChoserButton.Name = "fileChoserButton";
-      this.fileChoserButton.Size = new Size(108, 26);
-      this.fileChoserButton.TabIndex = 7;
-      this.fileChoserButton.Text = "בחירת קובץ";
-      this.fileChoserButton.UseVisualStyleBackColor = true;
-      this.fileChoserButton.Click += new EventHandler(this.fileChoserButton_Click);
-      this.loadExistsDbButton.FlatStyle = FlatStyle.System;
-      this.loadExistsDbButton.Font = new Font("Century Gothic", 15.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.loadExistsDbButton.ForeColor = Color.White;
-      this.loadExistsDbButton.Location = new Point(610, 268);
-      this.loadExistsDbButton.Name = "loadExistsDbButton";
-      this.loadExistsDbButton.Size = new Size(150, 70);
-      this.loadExistsDbButton.TabIndex = 8;
-      this.loadExistsDbButton.Text = "טעינת מסד נתונים קיים";
-      this.loadExistsDbButton.UseVisualStyleBackColor = true;
-      this.loadExistsDbButton.Click += new EventHandler(this.loadExistsDbButton_Click);
-      this.loadNewDbButton.FlatStyle = FlatStyle.System;
-      this.loadNewDbButton.Font = new Font("Century Gothic", 14.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.loadNewDbButton.ForeColor = Color.White;
-      this.loadNewDbButton.Location = new Point(610, 354);
-      this.loadNewDbButton.Name = "loadNewDbButton";
-      this.loadNewDbButton.Size = new Size(150, 70);
-      this.loadNewDbButton.TabIndex = 9;
-      this.loadNewDbButton.Text = "יצירת מסד נתונים חדש";
-      this.loadNewDbButton.UseVisualStyleBackColor = true;
-      this.loadNewDbButton.Click += new EventHandler(this.loadNewDbButton_Click);
-      this.openFileDialog1.FileName = "openFileDialog1";
-      this.openFileDialog1.FileOk += new CancelEventHandler(this.openFileDialog1_FileOk);
-      this.AcceptButton = (IButtonControl) this.loadExistsDbButton;
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackgroundImage = (Image) componentResourceManager.GetObject("$this.BackgroundImage");
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.ClientSize = new Size(784, 461);
-      this.Controls.Add((Control) this.loadNewDbButton);
-      this.Controls.Add((Control) this.loadExistsDbButton);
-      this.Controls.Add((Control) this.fileChoserButton);
-      this.Controls.Add((Control) this.fileDirectoryTextBox);
-      this.Controls.Add((Control) this.label1);
-      this.Controls.Add((Control) this.label2);
-      this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
-      this.MaximizeBox = false;
-      this.Name = nameof (FileLoader);
-      this.Text = "Delete";
-      this.FormClosed += new FormClosedEventHandler(this.FileLoader_FormClosed);
-      this.Load += new EventHandler(this.FileLoader_Load);
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileLoader));
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fileDirectoryTextBox = new System.Windows.Forms.TextBox();
+            this.fileChoserButton = new System.Windows.Forms.Button();
+            this.loadExistsDbButton = new System.Windows.Forms.Button();
+            this.loadNewDbButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.SuspendLayout();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(435, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(739, 112);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "טעינת בסיס נתונים";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(680, 240);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(469, 63);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "נא לבחור מסד נתונים:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // fileDirectoryTextBox
+            // 
+            this.fileDirectoryTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileDirectoryTextBox.Location = new System.Drawing.Point(332, 328);
+            this.fileDirectoryTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
+            this.fileDirectoryTextBox.Size = new System.Drawing.Size(805, 35);
+            this.fileDirectoryTextBox.TabIndex = 6;
+            this.fileDirectoryTextBox.TextChanged += new System.EventHandler(this.fileDirectoryTextBox_TextChanged);
+            // 
+            // fileChoserButton
+            // 
+            this.fileChoserButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileChoserButton.Location = new System.Drawing.Point(160, 328);
+            this.fileChoserButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fileChoserButton.Name = "fileChoserButton";
+            this.fileChoserButton.Size = new System.Drawing.Size(162, 40);
+            this.fileChoserButton.TabIndex = 7;
+            this.fileChoserButton.Text = "בחירת קובץ";
+            this.fileChoserButton.UseVisualStyleBackColor = true;
+            this.fileChoserButton.Click += new System.EventHandler(this.fileChoserButton_Click);
+            // 
+            // loadExistsDbButton
+            // 
+            this.loadExistsDbButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.loadExistsDbButton.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadExistsDbButton.ForeColor = System.Drawing.Color.White;
+            this.loadExistsDbButton.Location = new System.Drawing.Point(915, 412);
+            this.loadExistsDbButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.loadExistsDbButton.Name = "loadExistsDbButton";
+            this.loadExistsDbButton.Size = new System.Drawing.Size(225, 108);
+            this.loadExistsDbButton.TabIndex = 8;
+            this.loadExistsDbButton.Text = "טעינת מסד נתונים קיים";
+            this.loadExistsDbButton.UseVisualStyleBackColor = true;
+            this.loadExistsDbButton.Click += new System.EventHandler(this.loadExistsDbButton_Click);
+            // 
+            // loadNewDbButton
+            // 
+            this.loadNewDbButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.loadNewDbButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadNewDbButton.ForeColor = System.Drawing.Color.White;
+            this.loadNewDbButton.Location = new System.Drawing.Point(915, 545);
+            this.loadNewDbButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.loadNewDbButton.Name = "loadNewDbButton";
+            this.loadNewDbButton.Size = new System.Drawing.Size(225, 108);
+            this.loadNewDbButton.TabIndex = 9;
+            this.loadNewDbButton.Text = "יצירת מסד נתונים חדש";
+            this.loadNewDbButton.UseVisualStyleBackColor = true;
+            this.loadNewDbButton.Click += new System.EventHandler(this.loadNewDbButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // FileLoader
+            // 
+            this.AcceptButton = this.loadExistsDbButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1176, 709);
+            this.Controls.Add(this.loadNewDbButton);
+            this.Controls.Add(this.loadExistsDbButton);
+            this.Controls.Add(this.fileChoserButton);
+            this.Controls.Add(this.fileDirectoryTextBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.Name = "FileLoader";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FileLoader_FormClosed);
+            this.Load += new System.EventHandler(this.FileLoader_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
   }
 }
