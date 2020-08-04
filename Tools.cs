@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: AlertsProject.Tools
-// Assembly: AlertsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 01CC30A2-D287-482E-A95A-AE835F91B86F
-// Assembly location: C:\Users\Ofek Mula\Desktop\AlertsProject.exe
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -71,6 +65,9 @@ namespace AlertsProject
     public static StatLog statsForChart;
     public static string STATS_LOG_FILENAME;
     public static string DATABASE_FILENAME;
+    public static string USER_DB_FILENAME = "users_db";
+        public static string USER_DB_PATH ;
+        public static List<User> usersList;
 
     public static void writeDB()
     {
@@ -752,5 +749,62 @@ namespace AlertsProject
         return false;
       }
     }
-  }
+
+        public static void readUsersDB()
+        {
+            if (!File.Exists(Directory.GetCurrentDirectory() + "\\" + Tools.USER_DB_FILENAME))
+                File.Create(Directory.GetCurrentDirectory() + "\\" + Tools.USER_DB_FILENAME);
+            Tools.USER_DB_PATH = Path.GetFileName(Directory.GetCurrentDirectory() + "\\" + Tools.USER_DB_FILENAME);
+            using (Stream serializationStream = (Stream)File.Open(Tools.USER_DB_PATH, FileMode.Open))
+            {
+                if (serializationStream.Length > 0L)
+                {
+                    Tools.usersList = (List<User>)new BinaryFormatter().Deserialize(serializationStream);
+                }
+                else
+                {
+              
+                    Tools.usersList = new List<User>();
+                }
+                serializationStream.Close();
+            }
+        }
+        public static void writeToUsersDB()
+        {
+            try
+                {
+                    using (Stream serializationStream = (Stream)File.Open(Tools.USER_DB_PATH, FileMode.Create))
+                    {
+                        new BinaryFormatter().Serialize(serializationStream, (object)Tools.usersList);
+                        serializationStream.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+        }
+
+        public static Boolean isValidUser(string nickName)
+        {
+            for (int index = 0; index < Tools.usersList.Count; index++)
+            {
+                if (Tools.usersList[index].getName() == nickName)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static Boolean authenticationUser(string userName,string password)
+        {
+            for (int index = 0; index < Tools.usersList.Count; index++)
+            {
+                if (Tools.usersList[index].getUserName() == userName && Tools.usersList[index].getpassword()==password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 }

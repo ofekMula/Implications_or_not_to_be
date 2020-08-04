@@ -35,7 +35,9 @@ namespace AlertsProject
     private DataGridView affectedComponentsView;
     private DataGridViewTextBoxColumn FaultsHeader;
     private DataGridViewTextBoxColumn implicationsHeader;
-    private Button button1;
+        private RichTextBox solutionTextBox;
+        private Label label1;
+        private Button button1;
 
     public AddFault()
     {
@@ -89,7 +91,7 @@ namespace AlertsProject
     {
       if (!Tools.isValidFault(this.currentFaultsList, this.FaultNameTextBox.Text, this.implicationDataRichTextBox.Text, this.currentAffectedComponentsList))
         return;
-      this.currentFaultsList.Add(new Fault(this.FaultNameTextBox.Text, this.implicationDataRichTextBox.Text, this.currentAffectedComponentsList));
+      this.currentFaultsList.Add(new Fault(this.FaultNameTextBox.Text, this.implicationDataRichTextBox.Text,this.solutionTextBox.Text, this.currentAffectedComponentsList));
       Tools.loadFaultsIntoDataGridView(this.currentFaultsList, this.componentsFaultsView, false);
       int num = (int) MessageBox.Show("התקלה נוספה בהצלחה!", Tools.INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
       Tools.ResetAllControls((Control) this);
@@ -148,6 +150,8 @@ namespace AlertsProject
             this.FaultsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.implicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.solutionTextBox = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,11 +213,11 @@ namespace AlertsProject
             // implicationDataRichTextBox
             // 
             this.implicationDataRichTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.implicationDataRichTextBox.Location = new System.Drawing.Point(760, 358);
+            this.implicationDataRichTextBox.Location = new System.Drawing.Point(760, 327);
             this.implicationDataRichTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.implicationDataRichTextBox.Name = "implicationDataRichTextBox";
             this.implicationDataRichTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.implicationDataRichTextBox.Size = new System.Drawing.Size(529, 110);
+            this.implicationDataRichTextBox.Size = new System.Drawing.Size(529, 141);
             this.implicationDataRichTextBox.TabIndex = 29;
             this.implicationDataRichTextBox.Text = "";
             // 
@@ -238,7 +242,7 @@ namespace AlertsProject
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1096, 198);
+            this.label10.Location = new System.Drawing.Point(1096, 162);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -252,7 +256,7 @@ namespace AlertsProject
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(992, 286);
+            this.label11.Location = new System.Drawing.Point(1005, 272);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -263,7 +267,7 @@ namespace AlertsProject
             // FaultNameTextBox
             // 
             this.FaultNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.FaultNameTextBox.Location = new System.Drawing.Point(804, 209);
+            this.FaultNameTextBox.Location = new System.Drawing.Point(804, 173);
             this.FaultNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FaultNameTextBox.MaxLength = 3000;
             this.FaultNameTextBox.Name = "FaultNameTextBox";
@@ -359,6 +363,31 @@ namespace AlertsProject
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // solutionTextBox
+            // 
+            this.solutionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solutionTextBox.Location = new System.Drawing.Point(151, 327);
+            this.solutionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.solutionTextBox.Name = "solutionTextBox";
+            this.solutionTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.solutionTextBox.Size = new System.Drawing.Size(529, 141);
+            this.solutionTextBox.TabIndex = 55;
+            this.solutionTextBox.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(475, 272);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(214, 50);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "פתרון לתקלה";
+            // 
             // AddFault
             // 
             this.AcceptButton = this.addFaultnToComponentButton;
@@ -368,6 +397,8 @@ namespace AlertsProject
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.Controls.Add(this.solutionTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.affectedComponentsView);
             this.Controls.Add(this.deleteComponentButton);

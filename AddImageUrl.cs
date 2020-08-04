@@ -56,6 +56,8 @@ namespace AlertsProject
     private void addImageUrlButton_Click(object sender, EventArgs e)
     {
       this.componentImage = this.fileDirectoryTextBox.Text;
+            this.Close();
+    
     }
 
     protected override void Dispose(bool disposing)
@@ -125,6 +127,7 @@ namespace AlertsProject
             this.fileDirectoryTextBox.Name = "fileDirectoryTextBox";
             this.fileDirectoryTextBox.Size = new System.Drawing.Size(805, 35);
             this.fileDirectoryTextBox.TabIndex = 9;
+            this.fileDirectoryTextBox.TextChanged += new System.EventHandler(this.fileDirectoryTextBox_TextChanged);
             // 
             // pictureBox2
             // 
@@ -136,6 +139,7 @@ namespace AlertsProject
             this.pictureBox2.Size = new System.Drawing.Size(400, 300);
             this.pictureBox2.TabIndex = 47;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // openFileDialog1
             // 
@@ -146,6 +150,7 @@ namespace AlertsProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1326, 711);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.addImageUrlButton);
@@ -160,5 +165,15 @@ namespace AlertsProject
             this.PerformLayout();
 
     }
-  }
+
+        private void fileDirectoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

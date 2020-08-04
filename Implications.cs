@@ -16,7 +16,7 @@ namespace AlertsProject
   public class Implications : Form
   {
     private bool hideMenu = true;
-    private int stepSize = 100;
+    private int stepSize = 25;
     private int currentSelectIndex = -1;
     private IContainer components = (IContainer) null;
     private Form authentication;
@@ -51,7 +51,11 @@ namespace AlertsProject
     private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private Label label8;
-    private PictureBox pictureBox2;
+        private Label label9;
+        private RichTextBox solutionTextBox;
+        private Button addNewFaultButton;
+        private Button usersButton;
+        private PictureBox componentImage;
 
     public Implications(Form authentication)
     {
@@ -72,6 +76,7 @@ namespace AlertsProject
       Tools.updateComboBox(this.componentsNameList, Tools.componentsList);
       this.implicationsTextBox.Text = Tools.NEED_TO_CHOOSE_COMPONENT_IMPLICATION;
       this.componentDescriptionTextBox.Text = Tools.NEED_TO_CHOOSE_COMPONENT_IMPLICATION;
+            this.componentsNameList.SelectedIndex = -1;
       this.loadStats();
       Tools.writeStatsFile();
     }
@@ -100,7 +105,19 @@ namespace AlertsProject
         this.componentDescriptionTextBox.Text = this.selectedComponent.getDescription();
         Tools.getAffectingComponents(this.selectedComponent, systemComponentList);
         Tools.loadListIntoDataGridView(systemComponentList, this.affectingComponentsDataGrid, false);
-        if (faultsList == null)
+                if (this.selectedComponent != null)
+                {
+                    if (this.selectedComponent.getImage() != null)
+                    {
+                        this.componentImage.Load(this.selectedComponent.getImage());
+                    }
+                    else
+                    {
+                        this.componentImage.Image = null;
+                    }
+                }
+              
+                if (faultsList == null)
           return;
         List<string> componentsNamesList = new List<string>();
         List<SystemComponent> list = new List<SystemComponent>();
@@ -223,6 +240,7 @@ namespace AlertsProject
       Tools.createAffectedComponentsList(selectedComponent, faultsList[selectedFaultIndex], systemComponentList);
       Tools.loadListIntoDataGridView(systemComponentList, this.affectedComponentsView, false);
       this.implicationsTextBox.Text = faultsList[selectedFaultIndex].getimplication();
+            this.solutionTextBox.Text = faultsList[selectedFaultIndex].getSolution();
     }
 
     private void menuPanel_Paint(object sender, PaintEventArgs e)
@@ -276,431 +294,655 @@ namespace AlertsProject
 
     private void InitializeComponent()
     {
-      this.components = (IContainer) new Container();
-      DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle4 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle5 = new DataGridViewCellStyle();
-      DataGridViewCellStyle gridViewCellStyle6 = new DataGridViewCellStyle();
-      ComponentResourceManager resources = new ComponentResourceManager(typeof (Implications));
-      this.label3 = new Label();
-      this.componentsNameList = new ComboBox();
-      this.label2 = new Label();
-      this.implicationsTextBox = new RichTextBox();
-      this.label1 = new Label();
-      this.label5 = new Label();
-      this.FaultsNamesComboBox = new ComboBox();
-      this.label6 = new Label();
-      this.affectedComponentsView = new DataGridView();
-      this.FaultsHeader = new DataGridViewTextBoxColumn();
-      this.implicationsHeader = new DataGridViewTextBoxColumn();
-      this.label7 = new Label();
-      this.componentDescriptionTextBox = new RichTextBox();
-      this.slideMenuTimer = new Timer(this.components);
-      this.contextMenuStrip1 = new ContextMenuStrip(this.components);
-      this.label4 = new Label();
-      this.affectingComponentsDataGrid = new DataGridView();
-      this.dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-      this.label8 = new Label();
-      this.pictureBox2 = new PictureBox();
-      this.menuPanel = new MyPanel();
-      this.statisticsButton = new Button();
-      this.slideMenuButton = new Button();
-      this.pictureBox1 = new PictureBox();
-      this.addNewComponentButton = new Button();
-      this.updateComponentButton = new Button();
-      this.advancedSearchButton = new Button();
-      this.deleteComponentButton = new Button();
-      this.logOutButton = new Button();
-      ((ISupportInitialize) this.affectedComponentsView).BeginInit();
-      ((ISupportInitialize) this.affectingComponentsDataGrid).BeginInit();
-      ((ISupportInitialize) this.pictureBox2).BeginInit();
-      this.menuPanel.SuspendLayout();
-      ((ISupportInitialize) this.pictureBox1).BeginInit();
-      this.SuspendLayout();
-      this.label3.AutoSize = true;
-      this.label3.BackColor = Color.Transparent;
-      this.label3.Font = new Font("Century Gothic", 21.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label3.ForeColor = Color.Black;
-      this.label3.Location = new Point(807, 121);
-      this.label3.Name = "label3";
-      this.label3.RightToLeft = RightToLeft.Yes;
-      this.label3.Size = new Size(187, 36);
-      this.label3.TabIndex = 3;
-      this.label3.Text = "נא לבחור רכיב:";
-      this.componentsNameList.AutoCompleteMode = AutoCompleteMode.Suggest;
-      this.componentsNameList.AutoCompleteSource = AutoCompleteSource.ListItems;
-      this.componentsNameList.Font = new Font("Century Gothic", 12f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.componentsNameList.FormattingEnabled = true;
-      this.componentsNameList.Location = new Point(565, 128);
-      this.componentsNameList.Name = "componentsNameList";
-      this.componentsNameList.RightToLeft = RightToLeft.Yes;
-      this.componentsNameList.Size = new Size(236, 29);
-      this.componentsNameList.TabIndex = 4;
-      this.componentsNameList.SelectedIndexChanged += new EventHandler(this.componentsNameList_SelectedIndexChanged);
-      this.label2.AutoSize = true;
-      this.label2.BackColor = Color.Transparent;
-      this.label2.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label2.ForeColor = Color.Black;
-      this.label2.Location = new Point(341, 287);
-      this.label2.Name = "label2";
-      this.label2.RightToLeft = RightToLeft.Yes;
-      this.label2.Size = new Size(190, 30);
-      this.label2.TabIndex = 5;
-      this.label2.Text = "משמעויות התקלה:";
-      this.label2.Click += new EventHandler(this.label2_Click);
-      this.implicationsTextBox.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.implicationsTextBox.Location = new Point(112, 321);
-      this.implicationsTextBox.MaxLength = 10000000;
-      this.implicationsTextBox.Name = "implicationsTextBox";
-      this.implicationsTextBox.ReadOnly = true;
-      this.implicationsTextBox.RightToLeft = RightToLeft.Yes;
-      this.implicationsTextBox.Size = new Size(414, 112);
-      this.implicationsTextBox.TabIndex = 7;
-      this.implicationsTextBox.Text = "";
-      this.implicationsTextBox.TextChanged += new EventHandler(this.implicationsTextBox_TextChanged);
-      this.label1.AutoSize = true;
-      this.label1.BackColor = Color.Transparent;
-      this.label1.Font = new Font("Century Gothic", 48f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.label1.ForeColor = Color.Black;
-      this.label1.Location = new Point(407, 9);
-      this.label1.Name = "label1";
-      this.label1.RightToLeft = RightToLeft.Yes;
-      this.label1.Size = new Size(583, 77);
-      this.label1.TabIndex = 10;
-      this.label1.Text = "משמעויות או לא להיות!\r\n";
-      this.label1.Click += new EventHandler(this.label1_Click);
-      this.label5.AutoSize = true;
-      this.label5.BackColor = Color.Transparent;
-      this.label5.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label5.ForeColor = Color.Black;
-      this.label5.Location = new Point(850, 166);
-      this.label5.Name = "label5";
-      this.label5.RightToLeft = RightToLeft.Yes;
-      this.label5.Size = new Size(143, 30);
-      this.label5.TabIndex = 18;
-      this.label5.Text = "בחירת תקלה:";
-      this.FaultsNamesComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-      this.FaultsNamesComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-      this.FaultsNamesComboBox.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.FaultsNamesComboBox.FormattingEnabled = true;
-      this.FaultsNamesComboBox.Location = new Point(599, 171);
-      this.FaultsNamesComboBox.Name = "FaultsNamesComboBox";
-      this.FaultsNamesComboBox.RightToLeft = RightToLeft.Yes;
-      this.FaultsNamesComboBox.Size = new Size(245, 25);
-      this.FaultsNamesComboBox.TabIndex = 20;
-      this.FaultsNamesComboBox.SelectedIndexChanged += new EventHandler(this.faultsNamesComboBox_SelectedIndexChanged);
-      this.label6.AutoSize = true;
-      this.label6.BackColor = Color.Transparent;
-      this.label6.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label6.ForeColor = Color.Black;
-      this.label6.Location = new Point(824, 448);
-      this.label6.Name = "label6";
-      this.label6.RightToLeft = RightToLeft.Yes;
-      this.label6.Size = new Size(169, 30);
-      this.label6.TabIndex = 21;
-      this.label6.Text = "רכיבים משפיעים";
-      this.affectedComponentsView.AllowUserToAddRows = false;
-      this.affectedComponentsView.AllowUserToDeleteRows = false;
-      this.affectedComponentsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-      gridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-      gridViewCellStyle1.BackColor = SystemColors.Control;
-      gridViewCellStyle1.Font = new Font("Century Gothic", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      gridViewCellStyle1.ForeColor = SystemColors.WindowText;
-      gridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-      gridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-      gridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-      this.affectedComponentsView.ColumnHeadersDefaultCellStyle = gridViewCellStyle1;
-      this.affectedComponentsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.affectedComponentsView.Columns.AddRange((DataGridViewColumn) this.FaultsHeader, (DataGridViewColumn) this.implicationsHeader);
-      this.affectedComponentsView.Location = new Point(112, 484);
-      this.affectedComponentsView.MultiSelect = false;
-      this.affectedComponentsView.Name = "affectedComponentsView";
-      this.affectedComponentsView.RightToLeft = RightToLeft.Yes;
-      this.affectedComponentsView.RowHeadersVisible = false;
-      this.affectedComponentsView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-      this.affectedComponentsView.Size = new Size(414, 157);
-      this.affectedComponentsView.TabIndex = 22;
-      this.affectedComponentsView.CellContentClick += new DataGridViewCellEventHandler(this.affectedComponentsView_CellContentClick);
-      this.FaultsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-      gridViewCellStyle2.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.FaultsHeader.DefaultCellStyle = gridViewCellStyle2;
-      this.FaultsHeader.HeaderText = "שם הרכיב";
-      this.FaultsHeader.MinimumWidth = 150;
-      this.FaultsHeader.Name = "FaultsHeader";
-      this.FaultsHeader.Width = 150;
-      this.implicationsHeader.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-      gridViewCellStyle3.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.implicationsHeader.DefaultCellStyle = gridViewCellStyle3;
-      this.implicationsHeader.HeaderText = "תיאור הרכיב";
-      this.implicationsHeader.Name = "implicationsHeader";
-      this.label7.AutoSize = true;
-      this.label7.BackColor = Color.Transparent;
-      this.label7.Font = new Font("Century Gothic", 18.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label7.ForeColor = Color.Black;
-      this.label7.Location = new Point(862, 287);
-      this.label7.Name = "label7";
-      this.label7.RightToLeft = RightToLeft.Yes;
-      this.label7.Size = new Size(132, 31);
-      this.label7.TabIndex = 23;
-      this.label7.Text = "תיאור הרכיב:";
-      this.componentDescriptionTextBox.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.componentDescriptionTextBox.Location = new Point(574, 321);
-      this.componentDescriptionTextBox.MaxLength = 10000000;
-      this.componentDescriptionTextBox.Name = "componentDescriptionTextBox";
-      this.componentDescriptionTextBox.ReadOnly = true;
-      this.componentDescriptionTextBox.RightToLeft = RightToLeft.Yes;
-      this.componentDescriptionTextBox.Size = new Size(414, 112);
-      this.componentDescriptionTextBox.TabIndex = 24;
-      this.componentDescriptionTextBox.Text = "";
-      this.slideMenuTimer.Interval = 1;
-      this.slideMenuTimer.Tick += new EventHandler(this.slideMenuTimer_Tick);
-      this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new Size(61, 4);
-      this.label4.AutoSize = true;
-      this.label4.BackColor = Color.Transparent;
-      this.label4.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label4.ForeColor = Color.White;
-      this.label4.Location = new Point(803, 544);
-      this.label4.Name = "label4";
-      this.label4.RightToLeft = RightToLeft.Yes;
-      this.label4.Size = new Size(0, 30);
-      this.label4.TabIndex = 44;
-      this.affectingComponentsDataGrid.AllowUserToAddRows = false;
-      this.affectingComponentsDataGrid.AllowUserToDeleteRows = false;
-      this.affectingComponentsDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-      gridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-      gridViewCellStyle4.BackColor = SystemColors.Control;
-      gridViewCellStyle4.Font = new Font("Century Gothic", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      gridViewCellStyle4.ForeColor = SystemColors.WindowText;
-      gridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-      gridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-      gridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-      this.affectingComponentsDataGrid.ColumnHeadersDefaultCellStyle = gridViewCellStyle4;
-      this.affectingComponentsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.affectingComponentsDataGrid.Columns.AddRange((DataGridViewColumn) this.dataGridViewTextBoxColumn1, (DataGridViewColumn) this.dataGridViewTextBoxColumn2);
-      this.affectingComponentsDataGrid.Location = new Point(565, 484);
-      this.affectingComponentsDataGrid.MultiSelect = false;
-      this.affectingComponentsDataGrid.Name = "affectingComponentsDataGrid";
-      this.affectingComponentsDataGrid.RightToLeft = RightToLeft.Yes;
-      this.affectingComponentsDataGrid.RowHeadersVisible = false;
-      this.affectingComponentsDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-      this.affectingComponentsDataGrid.Size = new Size(423, 157);
-      this.affectingComponentsDataGrid.TabIndex = 47;
-      this.affectingComponentsDataGrid.CellContentClick += new DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-      this.dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-      gridViewCellStyle5.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.dataGridViewTextBoxColumn1.DefaultCellStyle = gridViewCellStyle5;
-      this.dataGridViewTextBoxColumn1.HeaderText = "שם הרכיב";
-      this.dataGridViewTextBoxColumn1.MinimumWidth = 150;
-      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      this.dataGridViewTextBoxColumn1.Width = 150;
-      this.dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-      gridViewCellStyle6.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.dataGridViewTextBoxColumn2.DefaultCellStyle = gridViewCellStyle6;
-      this.dataGridViewTextBoxColumn2.HeaderText = "תיאור הרכיב";
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-      this.label8.AutoSize = true;
-      this.label8.BackColor = Color.Transparent;
-      this.label8.Font = new Font("Century Gothic", 18f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
-      this.label8.ForeColor = Color.Black;
-      this.label8.Location = new Point(357, 448);
-      this.label8.Name = "label8";
-      this.label8.RightToLeft = RightToLeft.Yes;
-      this.label8.Size = new Size(174, 30);
-      this.label8.TabIndex = 49;
-      this.label8.Text = "רכיבים מושפעים:";
-      this.pictureBox2.BackColor = Color.Transparent;
-      this.pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-      this.pictureBox2.Image = (Image) resources.GetObject("pictureBox2.Image");
-      this.pictureBox2.Location = new Point(43, 59);
-      this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new Size(267, 195);
-      this.pictureBox2.TabIndex = 46;
-      this.pictureBox2.TabStop = false;
-      this.menuPanel.BackColor = Color.Transparent;
-      this.menuPanel.BackgroundImage = (Image) resources.GetObject("menuPanel.BackgroundImage");
-      this.menuPanel.BackgroundImageLayout = ImageLayout.Center;
-      this.menuPanel.Controls.Add((Control) this.statisticsButton);
-      this.menuPanel.Controls.Add((Control) this.slideMenuButton);
-      this.menuPanel.Controls.Add((Control) this.pictureBox1);
-      this.menuPanel.Controls.Add((Control) this.addNewComponentButton);
-      this.menuPanel.Controls.Add((Control) this.updateComponentButton);
-      this.menuPanel.Controls.Add((Control) this.advancedSearchButton);
-      this.menuPanel.Controls.Add((Control) this.deleteComponentButton);
-      this.menuPanel.Controls.Add((Control) this.logOutButton);
-      this.menuPanel.Dock = DockStyle.Right;
-      this.menuPanel.ForeColor = Color.Black;
-      this.menuPanel.Location = new Point(1040, 0);
-      this.menuPanel.Name = "menuPanel";
-      this.menuPanel.Size = new Size(44, 661);
-      this.menuPanel.TabIndex = 43;
-      this.menuPanel.Paint += new PaintEventHandler(this.menuPanel_Paint);
-      this.statisticsButton.BackColor = Color.Transparent;
-      this.statisticsButton.FlatAppearance.BorderSize = 0;
-      this.statisticsButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-      this.statisticsButton.FlatStyle = FlatStyle.Flat;
-      this.statisticsButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.statisticsButton.ForeColor = Color.Black;
-      this.statisticsButton.Image = (Image) resources.GetObject("statisticsButton.Image");
-      this.statisticsButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.statisticsButton.Location = new Point(0, 423);
-      this.statisticsButton.Name = "statisticsButton";
-      this.statisticsButton.RightToLeft = RightToLeft.No;
-      this.statisticsButton.Size = new Size(207, 55);
-      this.statisticsButton.TabIndex = 44;
-      this.statisticsButton.Text = "סטטיסטיקות";
-      this.statisticsButton.TextAlign = ContentAlignment.MiddleRight;
-      this.statisticsButton.UseVisualStyleBackColor = false;
-      this.statisticsButton.Click += new EventHandler(this.statisticsButton_Click);
-      this.slideMenuButton.BackColor = Color.Transparent;
-      this.slideMenuButton.BackgroundImageLayout = ImageLayout.None;
-      this.slideMenuButton.FlatAppearance.BorderSize = 0;
-      this.slideMenuButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
-      this.slideMenuButton.FlatStyle = FlatStyle.Flat;
-      this.slideMenuButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.slideMenuButton.ForeColor = Color.Black;
-      this.slideMenuButton.Image = (Image) resources.GetObject("slideMenuButton.Image");
-      this.slideMenuButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.slideMenuButton.Location = new Point(0, 0);
-      this.slideMenuButton.Name = "slideMenuButton";
-      this.slideMenuButton.RightToLeft = RightToLeft.No;
-      this.slideMenuButton.Size = new Size(200, 48);
-      this.slideMenuButton.TabIndex = 43;
-      this.slideMenuButton.Text = "תפריט";
-      this.slideMenuButton.TextAlign = ContentAlignment.MiddleRight;
-      this.slideMenuButton.UseVisualStyleBackColor = false;
-      this.slideMenuButton.Click += new EventHandler(this.slideMenuButton_Click);
-      this.pictureBox1.BackColor = Color.Transparent;
-      this.pictureBox1.BackgroundImage = (Image) resources.GetObject("pictureBox1.BackgroundImage");
-      this.pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-      this.pictureBox1.Location = new Point(-17, 70);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new Size(265, 108);
-      this.pictureBox1.TabIndex = 42;
-      this.pictureBox1.TabStop = false;
-      this.addNewComponentButton.BackColor = Color.Transparent;
-      this.addNewComponentButton.FlatAppearance.BorderSize = 0;
-      this.addNewComponentButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
-      this.addNewComponentButton.FlatStyle = FlatStyle.Flat;
-      this.addNewComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.addNewComponentButton.ForeColor = Color.Black;
-      this.addNewComponentButton.Image = (Image) resources.GetObject("addNewComponentButton.Image");
-      this.addNewComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.addNewComponentButton.Location = new Point(0, 171);
-      this.addNewComponentButton.Name = "addNewComponentButton";
-      this.addNewComponentButton.RightToLeft = RightToLeft.No;
-      this.addNewComponentButton.Size = new Size(200, 55);
-      this.addNewComponentButton.TabIndex = 0;
-      this.addNewComponentButton.Text = "רכיב חדש";
-      this.addNewComponentButton.TextAlign = ContentAlignment.MiddleRight;
-      this.addNewComponentButton.UseVisualStyleBackColor = false;
-      this.addNewComponentButton.Click += new EventHandler(this.addNewComponentButton_Click);
-      this.updateComponentButton.BackColor = Color.Transparent;
-      this.updateComponentButton.FlatAppearance.BorderSize = 0;
-      this.updateComponentButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
-      this.updateComponentButton.FlatStyle = FlatStyle.Flat;
-      this.updateComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.updateComponentButton.ForeColor = Color.Black;
-      this.updateComponentButton.Image = (Image) resources.GetObject("updateComponentButton.Image");
-      this.updateComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.updateComponentButton.Location = new Point(0, 235);
-      this.updateComponentButton.Name = "updateComponentButton";
-      this.updateComponentButton.RightToLeft = RightToLeft.No;
-      this.updateComponentButton.Size = new Size(200, 55);
-      this.updateComponentButton.TabIndex = 1;
-      this.updateComponentButton.Text = "עדכון רכיב";
-      this.updateComponentButton.TextAlign = ContentAlignment.MiddleRight;
-      this.updateComponentButton.UseVisualStyleBackColor = false;
-      this.updateComponentButton.Click += new EventHandler(this.updateComponentButton_Click);
-      this.advancedSearchButton.BackColor = Color.Transparent;
-      this.advancedSearchButton.FlatAppearance.BorderSize = 0;
-      this.advancedSearchButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
-      this.advancedSearchButton.FlatStyle = FlatStyle.Flat;
-      this.advancedSearchButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.advancedSearchButton.ForeColor = Color.Black;
-      this.advancedSearchButton.Image = (Image) resources.GetObject("advancedSearchButton.Image");
-      this.advancedSearchButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.advancedSearchButton.Location = new Point(0, 357);
-      this.advancedSearchButton.Name = "advancedSearchButton";
-      this.advancedSearchButton.RightToLeft = RightToLeft.No;
-      this.advancedSearchButton.Size = new Size(207, 55);
-      this.advancedSearchButton.TabIndex = 4;
-      this.advancedSearchButton.Text = "חיפוש מתקדם";
-      this.advancedSearchButton.TextAlign = ContentAlignment.MiddleRight;
-      this.advancedSearchButton.UseVisualStyleBackColor = false;
-      this.advancedSearchButton.Click += new EventHandler(this.advancedSearchButton_Click);
-      this.deleteComponentButton.BackColor = Color.Transparent;
-      this.deleteComponentButton.FlatAppearance.BorderSize = 0;
-      this.deleteComponentButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
-      this.deleteComponentButton.FlatStyle = FlatStyle.Flat;
-      this.deleteComponentButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.deleteComponentButton.ForeColor = Color.Black;
-      this.deleteComponentButton.Image = (Image) resources.GetObject("deleteComponentButton.Image");
-      this.deleteComponentButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.deleteComponentButton.Location = new Point(0, 296);
-      this.deleteComponentButton.Name = "deleteComponentButton";
-      this.deleteComponentButton.RightToLeft = RightToLeft.No;
-      this.deleteComponentButton.Size = new Size(207, 55);
-      this.deleteComponentButton.TabIndex = 3;
-      this.deleteComponentButton.Text = "מחיקת רכיב";
-      this.deleteComponentButton.TextAlign = ContentAlignment.MiddleRight;
-      this.deleteComponentButton.UseVisualStyleBackColor = false;
-      this.deleteComponentButton.Click += new EventHandler(this.deleteComponentButton_Click);
-      this.logOutButton.BackColor = Color.Transparent;
-      this.logOutButton.FlatAppearance.BorderSize = 0;
-      this.logOutButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-      this.logOutButton.FlatStyle = FlatStyle.Flat;
-      this.logOutButton.Font = new Font("Century Gothic", 20.25f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
-      this.logOutButton.ForeColor = Color.Black;
-      this.logOutButton.Image = (Image) resources.GetObject("logOutButton.Image");
-      this.logOutButton.ImageAlign = ContentAlignment.MiddleLeft;
-      this.logOutButton.Location = new Point(0, 484);
-      this.logOutButton.Name = "logOutButton";
-      this.logOutButton.RightToLeft = RightToLeft.No;
-      this.logOutButton.Size = new Size(207, 55);
-      this.logOutButton.TabIndex = 2;
-      this.logOutButton.Text = "התנתקות";
-      this.logOutButton.TextAlign = ContentAlignment.MiddleRight;
-      this.logOutButton.UseVisualStyleBackColor = false;
-      this.logOutButton.Click += new EventHandler(this.logOutButton_Click);
-      this.AutoScaleDimensions = new SizeF(6f, 13f);
-      this.AutoScaleMode = AutoScaleMode.Font;
-      this.BackColor = Color.White;
-      this.BackgroundImage = (Image) resources.GetObject("$this.BackgroundImage");
-      this.BackgroundImageLayout = ImageLayout.Stretch;
-      this.ClientSize = new Size(1084, 661);
-      this.Controls.Add((Control) this.label8);
-      this.Controls.Add((Control) this.pictureBox2);
-      this.Controls.Add((Control) this.label4);
-      this.Controls.Add((Control) this.menuPanel);
-      this.Controls.Add((Control) this.label7);
-      this.Controls.Add((Control) this.label6);
-      this.Controls.Add((Control) this.label2);
-      this.Controls.Add((Control) this.affectingComponentsDataGrid);
-      this.Controls.Add((Control) this.componentDescriptionTextBox);
-      this.Controls.Add((Control) this.affectedComponentsView);
-      this.Controls.Add((Control) this.FaultsNamesComboBox);
-      this.Controls.Add((Control) this.label5);
-      this.Controls.Add((Control) this.label1);
-      this.Controls.Add((Control) this.implicationsTextBox);
-      this.Controls.Add((Control) this.componentsNameList);
-      this.Controls.Add((Control) this.label3);
-      this.DoubleBuffered = true;
-      this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Icon = (Icon) resources.GetObject("$this.Icon");
-      this.MaximizeBox = false;
-      this.FormClosed += new FormClosedEventHandler(this.Implications_FormClosed);
-      this.Load += new EventHandler(this.Implications_Load);
-      ((ISupportInitialize) this.affectedComponentsView).EndInit();
-      ((ISupportInitialize) this.affectingComponentsDataGrid).EndInit();
-      ((ISupportInitialize) this.pictureBox2).EndInit();
-      this.menuPanel.ResumeLayout(false);
-      ((ISupportInitialize) this.pictureBox1).EndInit();
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Implications));
+            this.label3 = new System.Windows.Forms.Label();
+            this.componentsNameList = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.implicationsTextBox = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FaultsNamesComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.affectedComponentsView = new System.Windows.Forms.DataGridView();
+            this.FaultsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.implicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.componentDescriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.slideMenuTimer = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.affectingComponentsDataGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.componentImage = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.solutionTextBox = new System.Windows.Forms.RichTextBox();
+            this.addNewFaultButton = new System.Windows.Forms.Button();
+            this.menuPanel = new AlertsProject.MyPanel();
+            this.statisticsButton = new System.Windows.Forms.Button();
+            this.slideMenuButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.addNewComponentButton = new System.Windows.Forms.Button();
+            this.updateComponentButton = new System.Windows.Forms.Button();
+            this.advancedSearchButton = new System.Windows.Forms.Button();
+            this.deleteComponentButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.usersButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.affectingComponentsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentImage)).BeginInit();
+            this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(1210, 163);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(267, 51);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "נא לבחור רכיב:";
+            // 
+            // componentsNameList
+            // 
+            this.componentsNameList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.componentsNameList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.componentsNameList.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.componentsNameList.FormattingEnabled = true;
+            this.componentsNameList.Location = new System.Drawing.Point(848, 176);
+            this.componentsNameList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentsNameList.Name = "componentsNameList";
+            this.componentsNameList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.componentsNameList.Size = new System.Drawing.Size(352, 38);
+            this.componentsNameList.TabIndex = 4;
+            this.componentsNameList.SelectedIndexChanged += new System.EventHandler(this.componentsNameList_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(1208, 524);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(268, 43);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "משמעויות התקלה:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // implicationsTextBox
+            // 
+            this.implicationsTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.implicationsTextBox.Location = new System.Drawing.Point(886, 572);
+            this.implicationsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.implicationsTextBox.MaxLength = 10000000;
+            this.implicationsTextBox.Name = "implicationsTextBox";
+            this.implicationsTextBox.ReadOnly = true;
+            this.implicationsTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.implicationsTextBox.Size = new System.Drawing.Size(582, 131);
+            this.implicationsTextBox.TabIndex = 7;
+            this.implicationsTextBox.Text = "";
+            this.implicationsTextBox.TextChanged += new System.EventHandler(this.implicationsTextBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(610, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(889, 112);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "משמעויות או לא להיות!\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(1266, 437);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(210, 43);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "בחירת תקלה:";
+            // 
+            // FaultsNamesComboBox
+            // 
+            this.FaultsNamesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.FaultsNamesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.FaultsNamesComboBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultsNamesComboBox.FormattingEnabled = true;
+            this.FaultsNamesComboBox.Location = new System.Drawing.Point(897, 450);
+            this.FaultsNamesComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FaultsNamesComboBox.Name = "FaultsNamesComboBox";
+            this.FaultsNamesComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FaultsNamesComboBox.Size = new System.Drawing.Size(366, 31);
+            this.FaultsNamesComboBox.TabIndex = 20;
+            this.FaultsNamesComboBox.SelectedIndexChanged += new System.EventHandler(this.faultsNamesComboBox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(1237, 728);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(239, 43);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "רכיבים משפיעים";
+            // 
+            // affectedComponentsView
+            // 
+            this.affectedComponentsView.AllowUserToAddRows = false;
+            this.affectedComponentsView.AllowUserToDeleteRows = false;
+            this.affectedComponentsView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectedComponentsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.affectedComponentsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.affectedComponentsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FaultsHeader,
+            this.implicationsHeader});
+            this.affectedComponentsView.Location = new System.Drawing.Point(54, 774);
+            this.affectedComponentsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.affectedComponentsView.MultiSelect = false;
+            this.affectedComponentsView.Name = "affectedComponentsView";
+            this.affectedComponentsView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.affectedComponentsView.RowHeadersVisible = false;
+            this.affectedComponentsView.RowHeadersWidth = 62;
+            this.affectedComponentsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.affectedComponentsView.Size = new System.Drawing.Size(621, 213);
+            this.affectedComponentsView.TabIndex = 22;
+            this.affectedComponentsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.affectedComponentsView_CellContentClick);
+            // 
+            // FaultsHeader
+            // 
+            this.FaultsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultsHeader.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FaultsHeader.HeaderText = "שם הרכיב";
+            this.FaultsHeader.MinimumWidth = 150;
+            this.FaultsHeader.Name = "FaultsHeader";
+            this.FaultsHeader.Width = 150;
+            // 
+            // implicationsHeader
+            // 
+            this.implicationsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.implicationsHeader.DefaultCellStyle = dataGridViewCellStyle3;
+            this.implicationsHeader.HeaderText = "תיאור הרכיב";
+            this.implicationsHeader.MinimumWidth = 8;
+            this.implicationsHeader.Name = "implicationsHeader";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(1273, 233);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(203, 45);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "תיאור הרכיב:";
+            // 
+            // componentDescriptionTextBox
+            // 
+            this.componentDescriptionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.componentDescriptionTextBox.Location = new System.Drawing.Point(849, 283);
+            this.componentDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentDescriptionTextBox.MaxLength = 10000000;
+            this.componentDescriptionTextBox.Name = "componentDescriptionTextBox";
+            this.componentDescriptionTextBox.ReadOnly = true;
+            this.componentDescriptionTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.componentDescriptionTextBox.Size = new System.Drawing.Size(619, 132);
+            this.componentDescriptionTextBox.TabIndex = 24;
+            this.componentDescriptionTextBox.Text = "";
+            // 
+            // slideMenuTimer
+            // 
+            this.slideMenuTimer.Interval = 1;
+            this.slideMenuTimer.Tick += new System.EventHandler(this.slideMenuTimer_Tick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(1204, 837);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(0, 43);
+            this.label4.TabIndex = 44;
+            // 
+            // affectingComponentsDataGrid
+            // 
+            this.affectingComponentsDataGrid.AllowUserToAddRows = false;
+            this.affectingComponentsDataGrid.AllowUserToDeleteRows = false;
+            this.affectingComponentsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectingComponentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.affectingComponentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.affectingComponentsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.affectingComponentsDataGrid.Location = new System.Drawing.Point(834, 776);
+            this.affectingComponentsDataGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.affectingComponentsDataGrid.MultiSelect = false;
+            this.affectingComponentsDataGrid.Name = "affectingComponentsDataGrid";
+            this.affectingComponentsDataGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.affectingComponentsDataGrid.RowHeadersVisible = false;
+            this.affectingComponentsDataGrid.RowHeadersWidth = 62;
+            this.affectingComponentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.affectingComponentsDataGrid.Size = new System.Drawing.Size(634, 211);
+            this.affectingComponentsDataGrid.TabIndex = 47;
+            this.affectingComponentsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn1.HeaderText = "שם הרכיב";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 150;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn2.HeaderText = "תיאור הרכיב";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(437, 728);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(246, 43);
+            this.label8.TabIndex = 49;
+            this.label8.Text = "רכיבים מושפעים:";
+            // 
+            // componentImage
+            // 
+            this.componentImage.BackColor = System.Drawing.Color.Transparent;
+            this.componentImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.componentImage.ErrorImage = null;
+            this.componentImage.InitialImage = null;
+            this.componentImage.Location = new System.Drawing.Point(426, 163);
+            this.componentImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentImage.Name = "componentImage";
+            this.componentImage.Size = new System.Drawing.Size(324, 225);
+            this.componentImage.TabIndex = 46;
+            this.componentImage.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(471, 524);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label9.Size = new System.Drawing.Size(212, 43);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "פתרון התקלה:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // solutionTextBox
+            // 
+            this.solutionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solutionTextBox.Location = new System.Drawing.Point(97, 572);
+            this.solutionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.solutionTextBox.MaxLength = 10000000;
+            this.solutionTextBox.Name = "solutionTextBox";
+            this.solutionTextBox.ReadOnly = true;
+            this.solutionTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.solutionTextBox.Size = new System.Drawing.Size(578, 131);
+            this.solutionTextBox.TabIndex = 51;
+            this.solutionTextBox.Text = "";
+            // 
+            // addNewFaultButton
+            // 
+            this.addNewFaultButton.BackColor = System.Drawing.Color.Transparent;
+            this.addNewFaultButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addNewFaultButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.addNewFaultButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewFaultButton.ForeColor = System.Drawing.Color.White;
+            this.addNewFaultButton.Location = new System.Drawing.Point(712, 637);
+            this.addNewFaultButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addNewFaultButton.Name = "addNewFaultButton";
+            this.addNewFaultButton.Size = new System.Drawing.Size(166, 66);
+            this.addNewFaultButton.TabIndex = 52;
+            this.addNewFaultButton.Text = "דיווח תקלה במייל";
+            this.addNewFaultButton.UseVisualStyleBackColor = false;
+            this.addNewFaultButton.Click += new System.EventHandler(this.addNewFaultButton_Click);
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.BackColor = System.Drawing.Color.Transparent;
+            this.menuPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuPanel.BackgroundImage")));
+            this.menuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuPanel.Controls.Add(this.usersButton);
+            this.menuPanel.Controls.Add(this.statisticsButton);
+            this.menuPanel.Controls.Add(this.slideMenuButton);
+            this.menuPanel.Controls.Add(this.pictureBox1);
+            this.menuPanel.Controls.Add(this.addNewComponentButton);
+            this.menuPanel.Controls.Add(this.updateComponentButton);
+            this.menuPanel.Controls.Add(this.advancedSearchButton);
+            this.menuPanel.Controls.Add(this.deleteComponentButton);
+            this.menuPanel.Controls.Add(this.logOutButton);
+            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menuPanel.ForeColor = System.Drawing.Color.Black;
+            this.menuPanel.Location = new System.Drawing.Point(1575, 0);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(51, 1017);
+            this.menuPanel.TabIndex = 43;
+            this.menuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuPanel_Paint);
+            // 
+            // statisticsButton
+            // 
+            this.statisticsButton.BackColor = System.Drawing.Color.Transparent;
+            this.statisticsButton.FlatAppearance.BorderSize = 0;
+            this.statisticsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.statisticsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statisticsButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statisticsButton.ForeColor = System.Drawing.Color.Black;
+            this.statisticsButton.Image = ((System.Drawing.Image)(resources.GetObject("statisticsButton.Image")));
+            this.statisticsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statisticsButton.Location = new System.Drawing.Point(0, 651);
+            this.statisticsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.statisticsButton.Name = "statisticsButton";
+            this.statisticsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.statisticsButton.Size = new System.Drawing.Size(310, 85);
+            this.statisticsButton.TabIndex = 44;
+            this.statisticsButton.Text = "סטטיסטיקות";
+            this.statisticsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.statisticsButton.UseVisualStyleBackColor = false;
+            this.statisticsButton.Click += new System.EventHandler(this.statisticsButton_Click);
+            // 
+            // slideMenuButton
+            // 
+            this.slideMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.slideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.slideMenuButton.FlatAppearance.BorderSize = 0;
+            this.slideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.slideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slideMenuButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slideMenuButton.ForeColor = System.Drawing.Color.Black;
+            this.slideMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("slideMenuButton.Image")));
+            this.slideMenuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.slideMenuButton.Location = new System.Drawing.Point(0, 0);
+            this.slideMenuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.slideMenuButton.Name = "slideMenuButton";
+            this.slideMenuButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.slideMenuButton.Size = new System.Drawing.Size(300, 74);
+            this.slideMenuButton.TabIndex = 43;
+            this.slideMenuButton.Text = "תפריט";
+            this.slideMenuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.slideMenuButton.UseVisualStyleBackColor = false;
+            this.slideMenuButton.Click += new System.EventHandler(this.slideMenuButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(-26, 108);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(398, 166);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // addNewComponentButton
+            // 
+            this.addNewComponentButton.BackColor = System.Drawing.Color.Transparent;
+            this.addNewComponentButton.FlatAppearance.BorderSize = 0;
+            this.addNewComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.addNewComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addNewComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewComponentButton.ForeColor = System.Drawing.Color.Black;
+            this.addNewComponentButton.Image = ((System.Drawing.Image)(resources.GetObject("addNewComponentButton.Image")));
+            this.addNewComponentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addNewComponentButton.Location = new System.Drawing.Point(0, 263);
+            this.addNewComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addNewComponentButton.Name = "addNewComponentButton";
+            this.addNewComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addNewComponentButton.Size = new System.Drawing.Size(300, 85);
+            this.addNewComponentButton.TabIndex = 0;
+            this.addNewComponentButton.Text = "רכיב חדש";
+            this.addNewComponentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addNewComponentButton.UseVisualStyleBackColor = false;
+            this.addNewComponentButton.Click += new System.EventHandler(this.addNewComponentButton_Click);
+            // 
+            // updateComponentButton
+            // 
+            this.updateComponentButton.BackColor = System.Drawing.Color.Transparent;
+            this.updateComponentButton.FlatAppearance.BorderSize = 0;
+            this.updateComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.updateComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateComponentButton.ForeColor = System.Drawing.Color.Black;
+            this.updateComponentButton.Image = ((System.Drawing.Image)(resources.GetObject("updateComponentButton.Image")));
+            this.updateComponentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateComponentButton.Location = new System.Drawing.Point(0, 362);
+            this.updateComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updateComponentButton.Name = "updateComponentButton";
+            this.updateComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.updateComponentButton.Size = new System.Drawing.Size(300, 85);
+            this.updateComponentButton.TabIndex = 1;
+            this.updateComponentButton.Text = "עדכון רכיב";
+            this.updateComponentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateComponentButton.UseVisualStyleBackColor = false;
+            this.updateComponentButton.Click += new System.EventHandler(this.updateComponentButton_Click);
+            // 
+            // advancedSearchButton
+            // 
+            this.advancedSearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.advancedSearchButton.FlatAppearance.BorderSize = 0;
+            this.advancedSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.advancedSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.advancedSearchButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.advancedSearchButton.ForeColor = System.Drawing.Color.Black;
+            this.advancedSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("advancedSearchButton.Image")));
+            this.advancedSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.advancedSearchButton.Location = new System.Drawing.Point(0, 549);
+            this.advancedSearchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.advancedSearchButton.Name = "advancedSearchButton";
+            this.advancedSearchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.advancedSearchButton.Size = new System.Drawing.Size(310, 85);
+            this.advancedSearchButton.TabIndex = 4;
+            this.advancedSearchButton.Text = "חיפוש מתקדם";
+            this.advancedSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.advancedSearchButton.UseVisualStyleBackColor = false;
+            this.advancedSearchButton.Click += new System.EventHandler(this.advancedSearchButton_Click);
+            // 
+            // deleteComponentButton
+            // 
+            this.deleteComponentButton.BackColor = System.Drawing.Color.Transparent;
+            this.deleteComponentButton.FlatAppearance.BorderSize = 0;
+            this.deleteComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.deleteComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteComponentButton.ForeColor = System.Drawing.Color.Black;
+            this.deleteComponentButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteComponentButton.Image")));
+            this.deleteComponentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteComponentButton.Location = new System.Drawing.Point(0, 455);
+            this.deleteComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteComponentButton.Name = "deleteComponentButton";
+            this.deleteComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.deleteComponentButton.Size = new System.Drawing.Size(310, 85);
+            this.deleteComponentButton.TabIndex = 3;
+            this.deleteComponentButton.Text = "מחיקת רכיב";
+            this.deleteComponentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteComponentButton.UseVisualStyleBackColor = false;
+            this.deleteComponentButton.Click += new System.EventHandler(this.deleteComponentButton_Click);
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.BackColor = System.Drawing.Color.Transparent;
+            this.logOutButton.FlatAppearance.BorderSize = 0;
+            this.logOutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutButton.ForeColor = System.Drawing.Color.Black;
+            this.logOutButton.Image = ((System.Drawing.Image)(resources.GetObject("logOutButton.Image")));
+            this.logOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logOutButton.Location = new System.Drawing.Point(0, 837);
+            this.logOutButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.logOutButton.Size = new System.Drawing.Size(310, 85);
+            this.logOutButton.TabIndex = 2;
+            this.logOutButton.Text = "התנתקות";
+            this.logOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.Color.Transparent;
+            this.usersButton.FlatAppearance.BorderSize = 0;
+            this.usersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersButton.ForeColor = System.Drawing.Color.Black;
+            this.usersButton.Image = ((System.Drawing.Image)(resources.GetObject("usersButton.Image")));
+            this.usersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usersButton.Location = new System.Drawing.Point(0, 742);
+            this.usersButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.usersButton.Size = new System.Drawing.Size(310, 85);
+            this.usersButton.TabIndex = 45;
+            this.usersButton.Text = "משתמשים";
+            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            // 
+            // Implications
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1626, 1017);
+            this.Controls.Add(this.addNewFaultButton);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.solutionTextBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.componentImage);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.menuPanel);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.affectingComponentsDataGrid);
+            this.Controls.Add(this.componentDescriptionTextBox);
+            this.Controls.Add(this.affectedComponentsView);
+            this.Controls.Add(this.FaultsNamesComboBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.implicationsTextBox);
+            this.Controls.Add(this.componentsNameList);
+            this.Controls.Add(this.label3);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.Name = "Implications";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Implications_FormClosed);
+            this.Load += new System.EventHandler(this.Implications_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.affectingComponentsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentImage)).EndInit();
+            this.menuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
     }
-  }
+
+        private void addNewFaultButton_Click(object sender, EventArgs e)
+        {
+            if (FaultsNamesComboBox.SelectedIndex != -1)
+            {
+                int num = (int)new ReportWindow(this.componentsNameList.SelectedItem.ToString()
+                    ,this.FaultsNamesComboBox.SelectedItem.ToString(),
+                    this.implicationsTextBox.Text).ShowDialog();
+            }
+            
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            int num = (int)new UserWindow().ShowDialog();
+        }
+    }
 }

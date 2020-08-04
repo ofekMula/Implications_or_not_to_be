@@ -38,7 +38,9 @@ namespace AlertsProject
     private DataGridViewTextBoxColumn FaultsHeader;
     private DataGridViewTextBoxColumn implicationsHeader;
     private Button chooseFaultButton;
-    private Button cancelUpdateButton;
+        private RichTextBox solutionTextBox;
+        private Label label3;
+        private Button cancelUpdateButton;
 
     public UpdateFault()
     {
@@ -142,7 +144,9 @@ namespace AlertsProject
     {
       this.currentFaultsList[this.selectedFaultIndex].setName(this.updatedFaultNameTextBox.Text);
       this.currentFaultsList[this.selectedFaultIndex].setImplications(this.implicationsTextBox.Text);
-      this.currentFaultsList[this.selectedFaultIndex].setAffectedComponents(this.currentAffectedComponentsList);
+            this.currentFaultsList[this.selectedFaultIndex].setSolution(this.solutionTextBox.Text);
+
+            this.currentFaultsList[this.selectedFaultIndex].setAffectedComponents(this.currentAffectedComponentsList);
       Tools.loadFaultsIntoDataGridView(this.currentFaultsList, this.componentsFaultsView, false);
       int num = (int) MessageBox.Show("התקלה עודכנה בהצלחה!", Tools.INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
     }
@@ -217,6 +221,8 @@ namespace AlertsProject
             this.implicationsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chooseFaultButton = new System.Windows.Forms.Button();
             this.cancelUpdateButton = new System.Windows.Forms.Button();
+            this.solutionTextBox = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,7 +273,7 @@ namespace AlertsProject
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(1056, 237);
+            this.label5.Location = new System.Drawing.Point(1071, 236);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -282,7 +288,7 @@ namespace AlertsProject
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(882, 311);
+            this.label6.Location = new System.Drawing.Point(907, 311);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -294,7 +300,7 @@ namespace AlertsProject
             // updatedFaultNameTextBox
             // 
             this.updatedFaultNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatedFaultNameTextBox.Location = new System.Drawing.Point(824, 249);
+            this.updatedFaultNameTextBox.Location = new System.Drawing.Point(839, 248);
             this.updatedFaultNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.updatedFaultNameTextBox.MaxLength = 3000;
             this.updatedFaultNameTextBox.Name = "updatedFaultNameTextBox";
@@ -467,6 +473,32 @@ namespace AlertsProject
             this.cancelUpdateButton.UseVisualStyleBackColor = true;
             this.cancelUpdateButton.Click += new System.EventHandler(this.cancelUpdateButton_Click);
             // 
+            // solutionTextBox
+            // 
+            this.solutionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solutionTextBox.Location = new System.Drawing.Point(183, 362);
+            this.solutionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.solutionTextBox.Name = "solutionTextBox";
+            this.solutionTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.solutionTextBox.Size = new System.Drawing.Size(470, 138);
+            this.solutionTextBox.TabIndex = 55;
+            this.solutionTextBox.Text = "";
+            this.solutionTextBox.TextChanged += new System.EventHandler(this.solutionTextBox_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(380, 311);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(281, 43);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "עדכון פתרון לתקלה:";
+            // 
             // UpdateFault
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -475,6 +507,8 @@ namespace AlertsProject
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.Controls.Add(this.solutionTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cancelUpdateButton);
             this.Controls.Add(this.chooseFaultButton);
             this.Controls.Add(this.affectedComponentsView);
@@ -502,5 +536,10 @@ namespace AlertsProject
             this.PerformLayout();
 
     }
-  }
+
+        private void solutionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -32,7 +32,10 @@ namespace AlertsProject
     private Button addNewFaultButton;
     private Button addComponentButton;
     private Button button1;
-    private Button addImageButton;
+        private PictureBox pictureBox2;
+        private Button fileChoserButton;
+        private Label label1;
+        private OpenFileDialog openFileDialog1;
 
     public AddComponent(ComboBox componentsNames, Form implicationWindow)
     {
@@ -186,8 +189,12 @@ namespace AlertsProject
             this.addNewFaultButton = new System.Windows.Forms.Button();
             this.addComponentButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.addImageButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.fileChoserButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FaultsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // descriptionTextBox
@@ -352,7 +359,7 @@ namespace AlertsProject
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(18, 508);
+            this.button1.Location = new System.Drawing.Point(18, 583);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(255, 69);
@@ -361,21 +368,48 @@ namespace AlertsProject
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // addImageButton
+            // pictureBox2
             // 
-            this.addImageButton.BackColor = System.Drawing.Color.Transparent;
-            this.addImageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addImageButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.addImageButton.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImageButton.ForeColor = System.Drawing.Color.White;
-            this.addImageButton.Location = new System.Drawing.Point(18, 583);
-            this.addImageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.addImageButton.Name = "addImageButton";
-            this.addImageButton.Size = new System.Drawing.Size(255, 69);
-            this.addImageButton.TabIndex = 48;
-            this.addImageButton.Text = "הוספת תמונה";
-            this.addImageButton.UseVisualStyleBackColor = false;
-            this.addImageButton.Click += new System.EventHandler(this.addImageButton_Click);
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(424, 314);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(262, 224);
+            this.pictureBox2.TabIndex = 51;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // fileChoserButton
+            // 
+            this.fileChoserButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileChoserButton.Location = new System.Drawing.Point(178, 269);
+            this.fileChoserButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fileChoserButton.Name = "fileChoserButton";
+            this.fileChoserButton.Size = new System.Drawing.Size(162, 40);
+            this.fileChoserButton.TabIndex = 50;
+            this.fileChoserButton.Text = "בחירת קובץ";
+            this.fileChoserButton.UseVisualStyleBackColor = true;
+            this.fileChoserButton.Click += new System.EventHandler(this.fileChoserButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(348, 254);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(348, 55);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "הוספת תמונה לרכיב:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AddComponent
             // 
@@ -386,7 +420,9 @@ namespace AlertsProject
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1326, 863);
-            this.Controls.Add(this.addImageButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.fileChoserButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.addNewFaultButton);
             this.Controls.Add(this.addComponentButton);
@@ -403,9 +439,37 @@ namespace AlertsProject
             this.Name = "AddComponent";
             this.Load += new System.EventHandler(this.AddComponent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FaultsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
     }
-  }
+
+        private void fileChoserButton_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.Filter = "All files (*.*)|*.*";
+            if (this.openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+            //this.fileDirectoryTextBox.Text = this.openFileDialog1.FileName;
+            if (Tools.isUrlImage(this.openFileDialog1.FileName))
+            {
+                this.pictureBox2.Load(this.openFileDialog1.FileName);
+                this.componentImageUrl= this.openFileDialog1.FileName;
+            }
+            else
+            {
+                int num = (int)MessageBox.Show("יש לתת קישור לתמונות בלבד!");
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

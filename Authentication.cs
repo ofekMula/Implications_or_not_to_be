@@ -44,6 +44,11 @@ namespace AlertsProject
         Tools.readLog();
         Tools.LoadNextWindow((Form) this, (Form) new Implications((Form) this), true);
       }
+      else if (Tools.authenticationUser(userNameTextBox.Text, PasswordTextBox.Text))
+            {
+                Tools.adminMode = true;
+                Tools.LoadNextWindow((Form)this, (Form)new FileLoader((Form)this), true);
+            }
       else
       {
         int num = (int) MessageBox.Show(Tools.AUTHENTICATION_ERROR, Tools.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -64,6 +69,7 @@ namespace AlertsProject
 
     private void Authentication_Load(object sender, EventArgs e)
     {
+            Tools.readUsersDB();
     }
 
     private void Authentication_FormClosed(object sender, FormClosedEventArgs e)

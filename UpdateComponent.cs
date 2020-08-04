@@ -36,7 +36,12 @@ namespace AlertsProject
     private Label label8;
     private Button updateFaultButton;
     private Button addFaultButton;
-    private Button cancelUpdateButton;
+        private Button fileChoserButton;
+        private OpenFileDialog openFileDialog1;
+        private Button cancelUpdateButton;
+        private Label label5;
+        private PictureBox componentImage;
+        private String componentImageUrl;
 
     public UpdateComponent(ComboBox componentsNames, Form implicationWindow)
     {
@@ -71,7 +76,8 @@ namespace AlertsProject
         return;
       this.updatedComponentNameTextBox.Text = Tools.DataBase[this.selectedComponentIndex].getName();
       this.UpdatedDescriptionTextBox.Text = Tools.DataBase[this.selectedComponentIndex].getDescription();
-      this.currentFaultsList = Tools.DataBase[this.selectedComponentIndex].getFaultsList();
+            this.componentImageUrl = Tools.DataBase[this.selectedComponentIndex].getImage();
+            this.currentFaultsList = Tools.DataBase[this.selectedComponentIndex].getFaultsList();
       if (this.currentFaultsList == null)
         this.currentFaultsList = new List<Fault>();
       Tools.loadFaultsIntoDataGridView(this.currentFaultsList, this.FaultsView, false);
@@ -107,7 +113,8 @@ namespace AlertsProject
       Tools.DataBase[this.selectedComponentIndex].setName(this.updatedComponentNameTextBox.Text);
       Tools.DataBase[this.selectedComponentIndex].setDescription(this.UpdatedDescriptionTextBox.Text);
       Tools.DataBase[this.selectedComponentIndex].setFaultsList(this.currentFaultsList);
-      Tools.componentsList[this.selectedComponentIndex] = Tools.DataBase[this.selectedComponentIndex].getName();
+            Tools.DataBase[this.selectedComponentIndex].setComponentImage(this.componentImageUrl);
+            Tools.componentsList[this.selectedComponentIndex] = Tools.DataBase[this.selectedComponentIndex].getName();
       Tools.updateComboBox(this.componentsNameList, Tools.componentsList);
       Tools.updateComboBox(this.componentsNamesOfImplicationWindow, Tools.componentsList);
       this.cleanFieldsAfterUpdate();
@@ -137,7 +144,9 @@ namespace AlertsProject
       Tools.ResetAllControls((Control) this);
       this.updatedComponentNameTextBox.Text = "";
       this.UpdatedDescriptionTextBox.Text = "";
-      this.currentFaultsList = (List<Fault>) null;
+            this.openFileDialog1.FileName = "";
+            this.componentImageUrl = "";
+            this.currentFaultsList = (List<Fault>) null;
       this.selectedComponentIndex = -1;
       Tools.updateComboBox(this.componentsNameList, Tools.componentsList);
     }
@@ -205,7 +214,12 @@ namespace AlertsProject
             this.updateFaultButton = new System.Windows.Forms.Button();
             this.addFaultButton = new System.Windows.Forms.Button();
             this.cancelUpdateButton = new System.Windows.Forms.Button();
+            this.fileChoserButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label5 = new System.Windows.Forms.Label();
+            this.componentImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.FaultsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -228,7 +242,7 @@ namespace AlertsProject
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(1107, 165);
+            this.label3.Location = new System.Drawing.Point(1116, 139);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -239,7 +253,7 @@ namespace AlertsProject
             // chooseComponentButton
             // 
             this.chooseComponentButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chooseComponentButton.Location = new System.Drawing.Point(634, 178);
+            this.chooseComponentButton.Location = new System.Drawing.Point(659, 141);
             this.chooseComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chooseComponentButton.Name = "chooseComponentButton";
             this.chooseComponentButton.Size = new System.Drawing.Size(112, 43);
@@ -254,7 +268,7 @@ namespace AlertsProject
             this.componentsNameList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.componentsNameList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.componentsNameList.FormattingEnabled = true;
-            this.componentsNameList.Location = new System.Drawing.Point(756, 177);
+            this.componentsNameList.Location = new System.Drawing.Point(779, 148);
             this.componentsNameList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.componentsNameList.Name = "componentsNameList";
             this.componentsNameList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -265,7 +279,7 @@ namespace AlertsProject
             // updatedComponentNameTextBox
             // 
             this.updatedComponentNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updatedComponentNameTextBox.Location = new System.Drawing.Point(783, 269);
+            this.updatedComponentNameTextBox.Location = new System.Drawing.Point(814, 217);
             this.updatedComponentNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.updatedComponentNameTextBox.MaxLength = 3000;
             this.updatedComponentNameTextBox.Name = "updatedComponentNameTextBox";
@@ -280,7 +294,7 @@ namespace AlertsProject
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1076, 258);
+            this.label1.Location = new System.Drawing.Point(1092, 205);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -306,7 +320,7 @@ namespace AlertsProject
             // UpdatedDescriptionTextBox
             // 
             this.UpdatedDescriptionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdatedDescriptionTextBox.Location = new System.Drawing.Point(466, 358);
+            this.UpdatedDescriptionTextBox.Location = new System.Drawing.Point(763, 433);
             this.UpdatedDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UpdatedDescriptionTextBox.Name = "UpdatedDescriptionTextBox";
             this.UpdatedDescriptionTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -320,7 +334,7 @@ namespace AlertsProject
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(1006, 358);
+            this.label4.Location = new System.Drawing.Point(1027, 385);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -454,6 +468,49 @@ namespace AlertsProject
             this.cancelUpdateButton.UseVisualStyleBackColor = true;
             this.cancelUpdateButton.Click += new System.EventHandler(this.cancelUpdateButton_Click);
             // 
+            // fileChoserButton
+            // 
+            this.fileChoserButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileChoserButton.Location = new System.Drawing.Point(857, 288);
+            this.fileChoserButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fileChoserButton.Name = "fileChoserButton";
+            this.fileChoserButton.Size = new System.Drawing.Size(162, 40);
+            this.fileChoserButton.TabIndex = 53;
+            this.fileChoserButton.Text = "בחירת קובץ";
+            this.fileChoserButton.UseVisualStyleBackColor = true;
+            this.fileChoserButton.Click += new System.EventHandler(this.fileChoserButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(1027, 285);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(276, 43);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "עדכון תמונת הרכיב:";
+            // 
+            // componentImage
+            // 
+            this.componentImage.BackColor = System.Drawing.Color.Transparent;
+            this.componentImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.componentImage.ErrorImage = null;
+            this.componentImage.InitialImage = null;
+            this.componentImage.Location = new System.Drawing.Point(448, 285);
+            this.componentImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.componentImage.Name = "componentImage";
+            this.componentImage.Size = new System.Drawing.Size(204, 185);
+            this.componentImage.TabIndex = 55;
+            this.componentImage.TabStop = false;
+            // 
             // UpdateComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -462,6 +519,9 @@ namespace AlertsProject
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.Controls.Add(this.componentImage);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.fileChoserButton);
             this.Controls.Add(this.updateFaultButton);
             this.Controls.Add(this.addFaultButton);
             this.Controls.Add(this.deleteFaultFromListButton);
@@ -484,9 +544,27 @@ namespace AlertsProject
             this.Name = "UpdateComponent";
             this.Load += new System.EventHandler(this.UpdateComponent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FaultsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
     }
-  }
+
+        private void fileChoserButton_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.Filter = "All files (*.*)|*.*";
+            if (this.openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+            //this.fileDirectoryTextBox.Text = this.openFileDialog1.FileName;
+            if (Tools.isUrlImage(this.openFileDialog1.FileName))
+            {
+                //this.pictureBox2.Load(this.openFileDialog1.FileName);
+                this.componentImageUrl = this.openFileDialog1.FileName;
+            }
+            else
+            {
+                int num = (int)MessageBox.Show("יש לתת קישור לתמונות בלבד!");
+            }
+        }
+    }
 }

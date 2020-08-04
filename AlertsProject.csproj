@@ -37,9 +37,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
@@ -84,6 +86,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ReportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportWindow.Designer.cs">
+      <DependentUpon>ReportWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatLog.cs" />
     <Compile Include="Stats.cs" />
     <Compile Include="SystemComponent.cs" />
@@ -94,10 +102,17 @@
     <Compile Include="UpdateFault.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="UserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserWindow.Designer.cs">
+      <DependentUpon>UserWindow.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddComponent.resx">
@@ -125,11 +140,13 @@
       <DependentUpon>FileLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Implications.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Implications.Designer.cs</LastGenOutput>
+      <DependentUpon>Implications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inquiry.resx">
       <DependentUpon>Inquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportWindow.resx">
+      <DependentUpon>ReportWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateComponent.resx">
       <DependentUpon>UpdateComponent.cs</DependentUpon>
@@ -140,6 +157,9 @@
     <EmbeddedResource Include="UserControl1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UserControl1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserWindow.resx">
+      <DependentUpon>UserWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
