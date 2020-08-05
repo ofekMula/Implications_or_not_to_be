@@ -451,6 +451,7 @@ namespace AlertsProject
             if (Tools.isUrlImage(this.openFileDialog1.FileName))
             {
                 this.pictureBox2.Load(this.openFileDialog1.FileName);
+                this.pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
                 this.componentImageUrl= this.openFileDialog1.FileName;
             }
             else

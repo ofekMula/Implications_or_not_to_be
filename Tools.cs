@@ -711,7 +711,7 @@ namespace AlertsProject
       for (int index1 = 0; index1 < selectedFault.getAffectedComponents().Count; ++index1)
       {
         SystemComponent affectedComponent = selectedFault.getAffectedComponents()[index1];
-        if (affectedComponent.getName() != selectedComponentName && Tools.findComponentInListOfComponents(affectedComponents, selectedComponentName) == null)
+        if (affectedComponent.getName() != selectedComponentName && Tools.findComponentInListOfComponents(selectedFault.getAffectedComponents(), selectedComponentName) == null)
         {
           affectedComponents.Add(affectedComponent);
           for (int index2 = 0; index2 < affectedComponent.getFaultsList().Count; ++index2)

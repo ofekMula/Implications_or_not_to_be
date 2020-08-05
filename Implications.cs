@@ -110,6 +110,8 @@ namespace AlertsProject
                     if (this.selectedComponent.getImage() != null)
                     {
                         this.componentImage.Load(this.selectedComponent.getImage());
+                        this.componentImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                        
                     }
                     else
                     {
@@ -621,8 +623,9 @@ namespace AlertsProject
             // componentImage
             // 
             this.componentImage.BackColor = System.Drawing.Color.Transparent;
-            this.componentImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.componentImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.componentImage.ErrorImage = null;
+            this.componentImage.ImageLocation = "center";
             this.componentImage.InitialImage = null;
             this.componentImage.Location = new System.Drawing.Point(426, 163);
             this.componentImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
