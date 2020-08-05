@@ -16,7 +16,7 @@ namespace AlertsProject
   {
     private IContainer components = (IContainer) null;
     private string newComponentName;
-    private int currentSelectedComponent;
+    //private int currentSelectedComponent;
     private List<Fault> currentFaultsList;
     private SystemComponent currentAffectedComponent;
     private List<SystemComponent> currentAffectedComponentsList;

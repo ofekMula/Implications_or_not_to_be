@@ -33,7 +33,7 @@ namespace AlertsProject
                 }
                 Tools.usersList.Add(new User(nickNameTextBox.Text, userNameTextBox.Text, passwordTextBox.Text, pos));
                 Tools.writeToUsersDB();
-                MessageBox.Show(" :משתמש " + nickNameTextBox.Text + "נוסף בהצלחה ");
+                MessageBox.Show(" :משתמש " + nickNameTextBox.Text + " נוסף בהצלחה ");
                 Tools.ResetAllControls(this);
             }
             else

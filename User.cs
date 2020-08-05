@@ -51,7 +51,7 @@ namespace AlertsProject
         {
             this.userName = userName;
         }
-        public void setPassword()
+        public void setPassword(string password)
         {
             this.password = password;
         }

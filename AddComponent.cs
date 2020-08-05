@@ -161,10 +161,7 @@ namespace AlertsProject
     {
     }
 
-    private void addImageButton_Click(object sender, EventArgs e)
-    {
-      int num = (int) new AddImageUrl(this.componentImageUrl).ShowDialog();
-    }
+
 
     protected override void Dispose(bool disposing)
     {

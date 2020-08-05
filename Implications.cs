@@ -17,7 +17,7 @@ namespace AlertsProject
   {
     private bool hideMenu = true;
     private int stepSize = 25;
-    private int currentSelectIndex = -1;
+    //private int currentSelectIndex = -1;
     private IContainer components = (IContainer) null;
     private Form authentication;
     private SystemComponent selectedComponent;
@@ -327,6 +327,7 @@ namespace AlertsProject
             this.solutionTextBox = new System.Windows.Forms.RichTextBox();
             this.addNewFaultButton = new System.Windows.Forms.Button();
             this.menuPanel = new AlertsProject.MyPanel();
+            this.usersButton = new System.Windows.Forms.Button();
             this.statisticsButton = new System.Windows.Forms.Button();
             this.slideMenuButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -335,7 +336,6 @@ namespace AlertsProject
             this.advancedSearchButton = new System.Windows.Forms.Button();
             this.deleteComponentButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
-            this.usersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.affectingComponentsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentImage)).BeginInit();
@@ -677,9 +677,9 @@ namespace AlertsProject
             // 
             // menuPanel
             // 
-            this.menuPanel.BackColor = System.Drawing.Color.Transparent;
+            this.menuPanel.BackColor = System.Drawing.Color.White;
             this.menuPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuPanel.BackgroundImage")));
-            this.menuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuPanel.Controls.Add(this.usersButton);
             this.menuPanel.Controls.Add(this.statisticsButton);
             this.menuPanel.Controls.Add(this.slideMenuButton);
@@ -691,12 +691,33 @@ namespace AlertsProject
             this.menuPanel.Controls.Add(this.logOutButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.menuPanel.ForeColor = System.Drawing.Color.Black;
-            this.menuPanel.Location = new System.Drawing.Point(1575, 0);
+            this.menuPanel.Location = new System.Drawing.Point(1571, 0);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(51, 1017);
+            this.menuPanel.Size = new System.Drawing.Size(55, 1017);
             this.menuPanel.TabIndex = 43;
             this.menuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuPanel_Paint);
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.Color.Transparent;
+            this.usersButton.FlatAppearance.BorderSize = 0;
+            this.usersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersButton.ForeColor = System.Drawing.Color.Black;
+            this.usersButton.Image = ((System.Drawing.Image)(resources.GetObject("usersButton.Image")));
+            this.usersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usersButton.Location = new System.Drawing.Point(0, 742);
+            this.usersButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.usersButton.Size = new System.Drawing.Size(310, 85);
+            this.usersButton.TabIndex = 45;
+            this.usersButton.Text = "משתמשים";
+            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // statisticsButton
             // 
@@ -724,7 +745,7 @@ namespace AlertsProject
             this.slideMenuButton.BackColor = System.Drawing.Color.Transparent;
             this.slideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.slideMenuButton.FlatAppearance.BorderSize = 0;
-            this.slideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.slideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.slideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slideMenuButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slideMenuButton.ForeColor = System.Drawing.Color.Black;
@@ -746,10 +767,10 @@ namespace AlertsProject
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(-26, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 108);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(398, 166);
+            this.pictureBox1.Size = new System.Drawing.Size(310, 170);
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
@@ -757,7 +778,7 @@ namespace AlertsProject
             // 
             this.addNewComponentButton.BackColor = System.Drawing.Color.Transparent;
             this.addNewComponentButton.FlatAppearance.BorderSize = 0;
-            this.addNewComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.addNewComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.addNewComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addNewComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewComponentButton.ForeColor = System.Drawing.Color.Black;
@@ -778,7 +799,7 @@ namespace AlertsProject
             // 
             this.updateComponentButton.BackColor = System.Drawing.Color.Transparent;
             this.updateComponentButton.FlatAppearance.BorderSize = 0;
-            this.updateComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.updateComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.updateComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateComponentButton.ForeColor = System.Drawing.Color.Black;
@@ -799,7 +820,7 @@ namespace AlertsProject
             // 
             this.advancedSearchButton.BackColor = System.Drawing.Color.Transparent;
             this.advancedSearchButton.FlatAppearance.BorderSize = 0;
-            this.advancedSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.advancedSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.advancedSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.advancedSearchButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.advancedSearchButton.ForeColor = System.Drawing.Color.Black;
@@ -820,7 +841,7 @@ namespace AlertsProject
             // 
             this.deleteComponentButton.BackColor = System.Drawing.Color.Transparent;
             this.deleteComponentButton.FlatAppearance.BorderSize = 0;
-            this.deleteComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.deleteComponentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
             this.deleteComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteComponentButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteComponentButton.ForeColor = System.Drawing.Color.Black;
@@ -857,27 +878,6 @@ namespace AlertsProject
             this.logOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
-            // 
-            // usersButton
-            // 
-            this.usersButton.BackColor = System.Drawing.Color.Transparent;
-            this.usersButton.FlatAppearance.BorderSize = 0;
-            this.usersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.ForeColor = System.Drawing.Color.Black;
-            this.usersButton.Image = ((System.Drawing.Image)(resources.GetObject("usersButton.Image")));
-            this.usersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usersButton.Location = new System.Drawing.Point(0, 742);
-            this.usersButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.usersButton.Size = new System.Drawing.Size(310, 85);
-            this.usersButton.TabIndex = 45;
-            this.usersButton.Text = "משתמשים";
-            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // Implications
             // 

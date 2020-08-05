@@ -48,7 +48,6 @@ C:\Users\Ofek Mula\source\repos\Faults_Managment5\bin\Debug\CircularProgressBar.
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.csprojAssemblyReference.cache
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.AddComponent.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.AddFault.resources
-C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.AddImageUrl.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.AdvancedSearch.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.Authentication.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment5\obj\Debug\AlertsProject.DeleteComponent.resources

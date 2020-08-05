@@ -14,10 +14,10 @@ namespace AlertsProject
   {
     public static bool adminMode = false;
     public static readonly string Delimeter = "ASDF###@@@@ASDF";
-    public static readonly string ADMIN_USERNAME = "אופק";
-    public static readonly string ADMIN_PASSWORD = "מולא";
-    public static readonly string REGULAR_USERNAME = "ורד";
-    public static readonly string REGULAR_PASSWORD = "הרים";
+    public static readonly string ADMIN_USERNAME = "admin";
+    public static readonly string ADMIN_PASSWORD = "admin";
+    public static readonly string REGULAR_USERNAME = "user";
+    public static readonly string REGULAR_PASSWORD = "user";
     public static readonly string NO_FAULTS_IMPLICATION = "אין מידע עבור רכיב זה";
     public static readonly string DEAFULT_IMPLICATION = "יש לבחור תקלה כדי לראות מידע";
     public static readonly string NEED_TO_CHOOSE_COMPONENT_IMPLICATION = "יש לבחור רכיב כדי לראות מידע";
@@ -81,6 +81,7 @@ namespace AlertsProject
       }
       catch (Exception ex)
       {
+
       }
     }
 
