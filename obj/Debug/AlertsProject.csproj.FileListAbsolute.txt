@@ -70,7 +70,6 @@ C:\Users\Ofek Mula\source\repos\Faults_Managment\bin\Debug\AlertsProject.pdb
 C:\Users\Ofek Mula\source\repos\Faults_Managment\bin\Debug\CircularProgressBar.dll
 C:\Users\Ofek Mula\source\repos\Faults_Managment\bin\Debug\WinFormAnimation.dll
 C:\Users\Ofek Mula\source\repos\Faults_Managment\bin\Debug\CircularProgressBar.xml
-C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csprojAssemblyReference.cache
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.AddComponent.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.AddFault.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.AdvancedSearch.resources
@@ -90,3 +89,4 @@ C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csproj.
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csproj.CopyComplete
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.exe
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.pdb
+C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csprojAssemblyReference.cache

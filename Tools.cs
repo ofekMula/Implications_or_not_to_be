@@ -133,6 +133,8 @@ namespace AlertsProject
           ((ListControl) control).SelectedIndex = -1;
         if (control is DataGridView)
           ((DataGridView) control).Rows.Clear();
+        if (control is PictureBox)
+          ((PictureBox)control).Image = null;
       }
     }
 

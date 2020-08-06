@@ -118,6 +118,10 @@ namespace AlertsProject
                         this.componentImage.Image = null;
                     }
                 }
+                else
+                {
+                    this.componentImage.Image=null;
+                }
               
                 if (faultsList == null)
           return;
@@ -127,11 +131,13 @@ namespace AlertsProject
         {
           Tools.updateComboBox(this.FaultsNamesComboBox, Tools.createFaultsNamesList(faultsList));
           this.implicationsTextBox.Text = Tools.DEAFULT_IMPLICATION;
+          this.solutionTextBox.Text = Tools.DEAFULT_IMPLICATION;
           Tools.loadListIntoDataGridView(list, this.affectedComponentsView, false);
         }
         else
         {
           this.implicationsTextBox.Text = Tools.NO_FAULTS_IMPLICATION;
+          this.solutionTextBox.Text=Tools.NO_FAULTS_IMPLICATION;
           Tools.updateComboBox(this.FaultsNamesComboBox, componentsNamesList);
         }
       }
@@ -297,12 +303,14 @@ namespace AlertsProject
     private void InitializeComponent()
     {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Implications));
             this.label3 = new System.Windows.Forms.Label();
             this.componentsNameList = new System.Windows.Forms.ComboBox();
@@ -351,7 +359,7 @@ namespace AlertsProject
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(1210, 163);
+            this.label3.Location = new System.Drawing.Point(1212, 164);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -365,12 +373,12 @@ namespace AlertsProject
             this.componentsNameList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.componentsNameList.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.componentsNameList.FormattingEnabled = true;
-            this.componentsNameList.Location = new System.Drawing.Point(848, 176);
+            this.componentsNameList.Location = new System.Drawing.Point(850, 177);
             this.componentsNameList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.componentsNameList.Name = "componentsNameList";
             this.componentsNameList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.componentsNameList.Size = new System.Drawing.Size(352, 38);
-            this.componentsNameList.TabIndex = 4;
+            this.componentsNameList.TabIndex = 1;
             this.componentsNameList.SelectedIndexChanged += new System.EventHandler(this.componentsNameList_SelectedIndexChanged);
             // 
             // label2
@@ -379,7 +387,7 @@ namespace AlertsProject
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1208, 524);
+            this.label2.Location = new System.Drawing.Point(1210, 525);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -391,7 +399,7 @@ namespace AlertsProject
             // implicationsTextBox
             // 
             this.implicationsTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.implicationsTextBox.Location = new System.Drawing.Point(886, 572);
+            this.implicationsTextBox.Location = new System.Drawing.Point(888, 573);
             this.implicationsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.implicationsTextBox.MaxLength = 10000000;
             this.implicationsTextBox.Name = "implicationsTextBox";
@@ -408,7 +416,7 @@ namespace AlertsProject
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(610, 14);
+            this.label1.Location = new System.Drawing.Point(612, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -423,7 +431,7 @@ namespace AlertsProject
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(1266, 437);
+            this.label5.Location = new System.Drawing.Point(1268, 438);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -437,12 +445,12 @@ namespace AlertsProject
             this.FaultsNamesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.FaultsNamesComboBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FaultsNamesComboBox.FormattingEnabled = true;
-            this.FaultsNamesComboBox.Location = new System.Drawing.Point(897, 450);
+            this.FaultsNamesComboBox.Location = new System.Drawing.Point(899, 451);
             this.FaultsNamesComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FaultsNamesComboBox.Name = "FaultsNamesComboBox";
             this.FaultsNamesComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FaultsNamesComboBox.Size = new System.Drawing.Size(366, 31);
-            this.FaultsNamesComboBox.TabIndex = 20;
+            this.FaultsNamesComboBox.TabIndex = 2;
             this.FaultsNamesComboBox.SelectedIndexChanged += new System.EventHandler(this.faultsNamesComboBox_SelectedIndexChanged);
             // 
             // label6
@@ -451,7 +459,7 @@ namespace AlertsProject
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1237, 728);
+            this.label6.Location = new System.Drawing.Point(1239, 729);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -464,19 +472,27 @@ namespace AlertsProject
             this.affectedComponentsView.AllowUserToAddRows = false;
             this.affectedComponentsView.AllowUserToDeleteRows = false;
             this.affectedComponentsView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.affectedComponentsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectedComponentsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.affectedComponentsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.affectedComponentsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FaultsHeader,
             this.implicationsHeader});
-            this.affectedComponentsView.Location = new System.Drawing.Point(54, 774);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectedComponentsView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.affectedComponentsView.Location = new System.Drawing.Point(188, 775);
             this.affectedComponentsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.affectedComponentsView.MultiSelect = false;
             this.affectedComponentsView.Name = "affectedComponentsView";
@@ -484,15 +500,15 @@ namespace AlertsProject
             this.affectedComponentsView.RowHeadersVisible = false;
             this.affectedComponentsView.RowHeadersWidth = 62;
             this.affectedComponentsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.affectedComponentsView.Size = new System.Drawing.Size(621, 213);
+            this.affectedComponentsView.Size = new System.Drawing.Size(608, 213);
             this.affectedComponentsView.TabIndex = 22;
             this.affectedComponentsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.affectedComponentsView_CellContentClick);
             // 
             // FaultsHeader
             // 
             this.FaultsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FaultsHeader.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultsHeader.DefaultCellStyle = dataGridViewCellStyle10;
             this.FaultsHeader.HeaderText = "שם הרכיב";
             this.FaultsHeader.MinimumWidth = 150;
             this.FaultsHeader.Name = "FaultsHeader";
@@ -501,8 +517,8 @@ namespace AlertsProject
             // implicationsHeader
             // 
             this.implicationsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.implicationsHeader.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.implicationsHeader.DefaultCellStyle = dataGridViewCellStyle11;
             this.implicationsHeader.HeaderText = "תיאור הרכיב";
             this.implicationsHeader.MinimumWidth = 8;
             this.implicationsHeader.Name = "implicationsHeader";
@@ -513,7 +529,7 @@ namespace AlertsProject
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(1273, 233);
+            this.label7.Location = new System.Drawing.Point(1275, 234);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -524,7 +540,7 @@ namespace AlertsProject
             // componentDescriptionTextBox
             // 
             this.componentDescriptionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.componentDescriptionTextBox.Location = new System.Drawing.Point(849, 283);
+            this.componentDescriptionTextBox.Location = new System.Drawing.Point(851, 284);
             this.componentDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.componentDescriptionTextBox.MaxLength = 10000000;
             this.componentDescriptionTextBox.Name = "componentDescriptionTextBox";
@@ -551,7 +567,7 @@ namespace AlertsProject
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1204, 837);
+            this.label4.Location = new System.Drawing.Point(1206, 838);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -563,19 +579,27 @@ namespace AlertsProject
             this.affectingComponentsDataGrid.AllowUserToAddRows = false;
             this.affectingComponentsDataGrid.AllowUserToDeleteRows = false;
             this.affectingComponentsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.affectingComponentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectingComponentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.affectingComponentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.affectingComponentsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.affectingComponentsDataGrid.Location = new System.Drawing.Point(834, 776);
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.affectingComponentsDataGrid.DefaultCellStyle = dataGridViewCellStyle16;
+            this.affectingComponentsDataGrid.Location = new System.Drawing.Point(888, 777);
             this.affectingComponentsDataGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.affectingComponentsDataGrid.MultiSelect = false;
             this.affectingComponentsDataGrid.Name = "affectingComponentsDataGrid";
@@ -583,15 +607,15 @@ namespace AlertsProject
             this.affectingComponentsDataGrid.RowHeadersVisible = false;
             this.affectingComponentsDataGrid.RowHeadersWidth = 62;
             this.affectingComponentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.affectingComponentsDataGrid.Size = new System.Drawing.Size(634, 211);
+            this.affectingComponentsDataGrid.Size = new System.Drawing.Size(582, 211);
             this.affectingComponentsDataGrid.TabIndex = 47;
             this.affectingComponentsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn1.HeaderText = "שם הרכיב";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 150;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -600,8 +624,8 @@ namespace AlertsProject
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn2.HeaderText = "תיאור הרכיב";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -612,7 +636,7 @@ namespace AlertsProject
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(437, 728);
+            this.label8.Location = new System.Drawing.Point(558, 729);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -627,7 +651,7 @@ namespace AlertsProject
             this.componentImage.ErrorImage = null;
             this.componentImage.ImageLocation = "center";
             this.componentImage.InitialImage = null;
-            this.componentImage.Location = new System.Drawing.Point(426, 163);
+            this.componentImage.Location = new System.Drawing.Point(428, 164);
             this.componentImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.componentImage.Name = "componentImage";
             this.componentImage.Size = new System.Drawing.Size(324, 225);
@@ -640,7 +664,7 @@ namespace AlertsProject
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(471, 524);
+            this.label9.Location = new System.Drawing.Point(592, 525);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -652,7 +676,7 @@ namespace AlertsProject
             // solutionTextBox
             // 
             this.solutionTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solutionTextBox.Location = new System.Drawing.Point(97, 572);
+            this.solutionTextBox.Location = new System.Drawing.Point(218, 573);
             this.solutionTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.solutionTextBox.MaxLength = 10000000;
             this.solutionTextBox.Name = "solutionTextBox";
@@ -669,11 +693,11 @@ namespace AlertsProject
             this.addNewFaultButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.addNewFaultButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewFaultButton.ForeColor = System.Drawing.Color.White;
-            this.addNewFaultButton.Location = new System.Drawing.Point(712, 637);
+            this.addNewFaultButton.Location = new System.Drawing.Point(715, 451);
             this.addNewFaultButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addNewFaultButton.Name = "addNewFaultButton";
             this.addNewFaultButton.Size = new System.Drawing.Size(166, 66);
-            this.addNewFaultButton.TabIndex = 52;
+            this.addNewFaultButton.TabIndex = 3;
             this.addNewFaultButton.Text = "דיווח תקלה במייל";
             this.addNewFaultButton.UseVisualStyleBackColor = false;
             this.addNewFaultButton.Click += new System.EventHandler(this.addNewFaultButton_Click);
@@ -694,7 +718,7 @@ namespace AlertsProject
             this.menuPanel.Controls.Add(this.logOutButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.menuPanel.ForeColor = System.Drawing.Color.Black;
-            this.menuPanel.Location = new System.Drawing.Point(1571, 0);
+            this.menuPanel.Location = new System.Drawing.Point(1623, 0);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(55, 1017);
@@ -890,7 +914,7 @@ namespace AlertsProject
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1626, 1017);
+            this.ClientSize = new System.Drawing.Size(1678, 1017);
             this.Controls.Add(this.addNewFaultButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.solutionTextBox);

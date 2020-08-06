@@ -64,7 +64,7 @@
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.userNameTextBox.Size = new System.Drawing.Size(282, 35);
-            this.userNameTextBox.TabIndex = 35;
+            this.userNameTextBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -103,7 +103,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.passwordTextBox.Size = new System.Drawing.Size(282, 35);
-            this.passwordTextBox.TabIndex = 39;
+            this.passwordTextBox.TabIndex = 3;
             // 
             // nickNameTextBox
             // 
@@ -114,7 +114,7 @@
             this.nickNameTextBox.Name = "nickNameTextBox";
             this.nickNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nickNameTextBox.Size = new System.Drawing.Size(282, 35);
-            this.nickNameTextBox.TabIndex = 41;
+            this.nickNameTextBox.TabIndex = 1;
             // 
             // label4
             // 
@@ -140,7 +140,7 @@
             this.updateFaultButton.Name = "updateFaultButton";
             this.updateFaultButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.updateFaultButton.Size = new System.Drawing.Size(198, 82);
-            this.updateFaultButton.TabIndex = 42;
+            this.updateFaultButton.TabIndex = 5;
             this.updateFaultButton.Text = "הוספת משתמש";
             this.updateFaultButton.UseVisualStyleBackColor = true;
             this.updateFaultButton.Click += new System.EventHandler(this.updateFaultButton_Click);
@@ -168,7 +168,7 @@
             this.adminButton.Name = "adminButton";
             this.adminButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.adminButton.Size = new System.Drawing.Size(89, 33);
-            this.adminButton.TabIndex = 44;
+            this.adminButton.TabIndex = 4;
             this.adminButton.TabStop = true;
             this.adminButton.Text = "מנהל";
             this.adminButton.UseVisualStyleBackColor = false;
