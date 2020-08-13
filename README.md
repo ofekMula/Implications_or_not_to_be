@@ -19,7 +19,9 @@ this is why,the Database must be created by the engineer of the system or an exp
 ## Other features:
 
 1. report a fault through sending mail with gmail.
+![alt text](https://github.com/ofekMula/Faults_Managment/blob/master/images/proj4.jpg)
 2. some statistics: number of compnents, number of faults , and faults per components in the system and more.
+![alt text](https://github.com/ofekMula/Faults_Managment/blob/master/images/proj3.jpg)
 3. user manging : admin( can edit and update the database) and normal user (cant change the database).
 
 ## Installation (runs in Windows only):
