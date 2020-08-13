@@ -1,8 +1,7 @@
 # Faults_Managment
-Faults Managment App is a program for managing components in a large and complicated system.
-for example , in a model of celluar system the components will be the sites (base stations) , core components : servers,routers,switches, end users components :mobile cellphone.
+Faults Managment App is a program for managing faults (and their implications) of components in a large and complicated system.
+for example , in a model of celluar system, the components will be the sites (base stations) , thr core components : servers,routers,switches, and the end users components :mobile cellphone.
 
-![alt text](http://url/to/img.png)
 ## Main objective
 
 mapping all the components and their known faults/malfunctions in the system.
@@ -11,6 +10,7 @@ By that, the program can deduce:
 1. for each fault of a component, which other components can affect it ( in a case of a malfunction in them).
 2. It can also deduce in a case of a fault, who all the other components which affected by this fault.
 
+![alt text](https://github.com/ofekMula/Faults_Managment/blob/master/images/implications_proj2.JPG)
 ## How the model is built?
 
 The relations between the objects is defines the implications of each fault of a specific component on other components in the system.
