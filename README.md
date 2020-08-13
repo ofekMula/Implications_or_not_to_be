@@ -2,6 +2,7 @@
 Faults Managment App is a program for managing components in a large and complicated system.
 for example , in a model of celluar system the components will be the sites (base stations) , core components : servers,routers,switches, end users components :mobile cellphone.
 
+![alt text](http://url/to/img.png)
 ## Main objective
 
 mapping all the components and their known faults/malfunctions in the system.
