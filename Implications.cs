@@ -41,7 +41,6 @@ namespace AlertsProject
     private Button addNewComponentButton;
     private MyPanel menuPanel;
     private Button slideMenuButton;
-    private PictureBox pictureBox1;
     private Timer slideMenuTimer;
     private ContextMenuStrip contextMenuStrip1;
     private Button statisticsButton;
@@ -55,6 +54,7 @@ namespace AlertsProject
         private RichTextBox solutionTextBox;
         private Button addNewFaultButton;
         private Button usersButton;
+        private PictureBox pictureBox1;
         private PictureBox componentImage;
 
     public Implications(Form authentication)
@@ -340,12 +340,12 @@ namespace AlertsProject
             this.usersButton = new System.Windows.Forms.Button();
             this.statisticsButton = new System.Windows.Forms.Button();
             this.slideMenuButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addNewComponentButton = new System.Windows.Forms.Button();
             this.updateComponentButton = new System.Windows.Forms.Button();
             this.advancedSearchButton = new System.Windows.Forms.Button();
             this.deleteComponentButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.affectingComponentsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentImage)).BeginInit();
@@ -707,10 +707,10 @@ namespace AlertsProject
             this.menuPanel.BackColor = System.Drawing.Color.White;
             this.menuPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuPanel.BackgroundImage")));
             this.menuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.menuPanel.Controls.Add(this.pictureBox1);
             this.menuPanel.Controls.Add(this.usersButton);
             this.menuPanel.Controls.Add(this.statisticsButton);
             this.menuPanel.Controls.Add(this.slideMenuButton);
-            this.menuPanel.Controls.Add(this.pictureBox1);
             this.menuPanel.Controls.Add(this.addNewComponentButton);
             this.menuPanel.Controls.Add(this.updateComponentButton);
             this.menuPanel.Controls.Add(this.advancedSearchButton);
@@ -718,10 +718,10 @@ namespace AlertsProject
             this.menuPanel.Controls.Add(this.logOutButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.menuPanel.ForeColor = System.Drawing.Color.Black;
-            this.menuPanel.Location = new System.Drawing.Point(1378, 0);
+            this.menuPanel.Location = new System.Drawing.Point(1623, 0);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(300, 1017);
+            this.menuPanel.Size = new System.Drawing.Size(55, 1017);
             this.menuPanel.TabIndex = 43;
             this.menuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuPanel_Paint);
             // 
@@ -788,18 +788,6 @@ namespace AlertsProject
             this.slideMenuButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.slideMenuButton.UseVisualStyleBackColor = false;
             this.slideMenuButton.Click += new System.EventHandler(this.slideMenuButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 108);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(310, 170);
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
             // 
             // addNewComponentButton
             // 
@@ -905,6 +893,18 @@ namespace AlertsProject
             this.logOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 74);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 169);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
             // 
             // Implications
             // 
