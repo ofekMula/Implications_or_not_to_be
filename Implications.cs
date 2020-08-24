@@ -1,9 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: AlertsProject.Implications
-// Assembly: AlertsProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 01CC30A2-D287-482E-A95A-AE835F91B86F
-// Assembly location: C:\Users\Ofek Mula\Desktop\AlertsProject.exe
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -337,6 +332,7 @@ namespace AlertsProject
             this.solutionTextBox = new System.Windows.Forms.RichTextBox();
             this.addNewFaultButton = new System.Windows.Forms.Button();
             this.menuPanel = new AlertsProject.MyPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.usersButton = new System.Windows.Forms.Button();
             this.statisticsButton = new System.Windows.Forms.Button();
             this.slideMenuButton = new System.Windows.Forms.Button();
@@ -345,7 +341,6 @@ namespace AlertsProject
             this.advancedSearchButton = new System.Windows.Forms.Button();
             this.deleteComponentButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.affectedComponentsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.affectingComponentsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentImage)).BeginInit();
@@ -725,6 +720,18 @@ namespace AlertsProject
             this.menuPanel.TabIndex = 43;
             this.menuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuPanel_Paint);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 74);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 169);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
             // usersButton
             // 
             this.usersButton.BackColor = System.Drawing.Color.Transparent;
@@ -893,18 +900,6 @@ namespace AlertsProject
             this.logOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 74);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 169);
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
             // 
             // Implications
             // 

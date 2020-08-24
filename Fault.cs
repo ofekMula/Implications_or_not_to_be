@@ -45,7 +45,7 @@ namespace AlertsProject
 
         public string getSolution()
         {
-            return this.implication;
+            return this.solution;
         }
         public List<SystemComponent> getAffectedComponents()
         {
