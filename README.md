@@ -1,6 +1,6 @@
 # Implications or not to be ("משמעויות או לא להיות")
 
-It's an app which developed in order to manage faults (and their implications) of components in a large and complicated system.
+"Implications or not to be" it's a program for managing faults (and their implications) of components in a large and complicated system.
 In my implementation, it manages components of a celluar system.
 The components are be the sites (base stations) ,servers,routers,switches and more.
 
