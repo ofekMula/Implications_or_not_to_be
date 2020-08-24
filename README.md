@@ -12,7 +12,7 @@ By that, the program can deduce:
 1. for each fault of a component, which other components can affect it ( in a case of a malfunction in them).
 2. It can also deduce in a case of a fault, who all the other components which affected by this fault.
 
-![alt text]https://github.com/ofekMula/Faults_Managment/blob/master/images/implications_proj2.JPG
+![alt text](https://github.com/ofekMula/Faults_Managment/blob/master/images/implications_proj2.JPG)
 
 ## How the model is built?
 
@@ -21,7 +21,7 @@ this is why,the Database must be created by the engineer of the system or an exp
 
 ## Menu options:
 
-![alt text]https://github.com/ofekMula/Implications_or_not_to_be/blob/master/images/implications_proj5.JPG
+![alt text](https://github.com/ofekMula/Implications_or_not_to_be/blob/master/images/implications_proj5.JPG)
 
 ## Other features:
 
