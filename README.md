@@ -2,7 +2,7 @@
 
 "Implications or not to be" it's a program for managing faults (and their implications) of components in a large and complicated system.
 In my implementation, it manages components of a celluar system.
-The components are be the sites (base stations) ,servers,routers,switches and more.
+The components are be the sites (base stations) ,servers,routers,switches,etc.
 
 ## Main objective
 
