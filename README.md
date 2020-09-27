@@ -39,4 +39,7 @@ then run the AlertProject.exe file.
 important: do not tuch the files in the folder.
 the app run is based on these files.
 
-
+## What I learned
+* C# programming language
+* Winforms GUI Library
+* Use Serialization in reading/writing objects from/to files.
