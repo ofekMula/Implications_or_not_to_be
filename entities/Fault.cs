@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace AlertsProject
 {
+    /*
+     * Holds data about faults which related to system components in a cellular system.
+     */
+
     [Serializable]
     public class Fault
     {

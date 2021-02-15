@@ -4,7 +4,10 @@ using System;
 
 namespace AlertsProject
 {
-  [Serializable]
+ /*
+ * Holds statistics about the components in the database.
+ */
+    [Serializable]
   public class Stats
   {
     private int numberOfComponents;

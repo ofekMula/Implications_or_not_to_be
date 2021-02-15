@@ -8,6 +8,12 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Forms.Layout;
 
+/**
+ * a static library which provides:
+ *  1. static services (methods) for some of the windows in the app
+ *  2. constant vatiables - messages,numbers and more.
+ * 
+ */
 namespace AlertsProject
 {
   internal class Tools
