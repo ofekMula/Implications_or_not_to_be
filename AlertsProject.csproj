@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ofekM.ico</ApplicationIcon>
+    <ApplicationIcon>general\ofekM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
@@ -64,113 +64,118 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddComponent.cs">
+    <Compile Include="add_update_delete_db\AddComponent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddFault.cs">
+    <Compile Include="add_update_delete_db\AddFault.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdvancedSearch.cs">
+    <Compile Include="app_features\AdvancedSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication.cs">
+    <Compile Include="app_features\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteComponent.cs">
+    <Compile Include="add_update_delete_db\DeleteComponent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FilesListWindow.cs">
+    <Compile Include="app_features\FilesListWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoFile.cs" />
-    <Compile Include="Inquiry.cs">
+    <Compile Include="entities\InfoFile.cs" />
+    <Compile Include="app_features\Inquiry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features.cs">
+    <Compile Include="app_features\Features.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FileLoader.cs">
+    <Compile Include="app_features\FileLoader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fault.cs" />
-    <Compile Include="Implications.cs">
+    <Compile Include="entities\Fault.cs" />
+    <Compile Include="app_features\Implications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyPanel.cs">
+    <Compile Include="general\MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="general\UserControl1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserControl1.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ReportWindow.cs">
+    <Compile Include="app_features\ReportWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportWindow.Designer.cs">
+    <Compile Include="app_features\ReportWindow.Designer.cs">
       <DependentUpon>ReportWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatLog.cs" />
-    <Compile Include="Stats.cs" />
-    <Compile Include="SystemComponent.cs" />
-    <Compile Include="Tools.cs" />
-    <Compile Include="UpdateComponent.cs">
+    <Compile Include="entities\StatLog.cs" />
+    <Compile Include="entities\Stats.cs" />
+    <Compile Include="entities\SystemComponent.cs" />
+    <Compile Include="entities\Utils.cs" />
+    <Compile Include="add_update_delete_db\UpdateComponent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateFault.cs">
+    <Compile Include="add_update_delete_db\UpdateFault.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="UserWindow.cs">
+    <Compile Include="entities\User.cs" />
+    <Compile Include="app_features\UserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserWindow.Designer.cs">
+    <Compile Include="app_features\UserWindow.Designer.cs">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AddComponent.resx">
+    <EmbeddedResource Include="add_update_delete_db\AddComponent.resx">
       <DependentUpon>AddComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddFault.resx">
+    <EmbeddedResource Include="add_update_delete_db\AddFault.resx">
       <DependentUpon>AddFault.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdvancedSearch.resx">
+    <EmbeddedResource Include="app_features\AdvancedSearch.resx">
       <DependentUpon>AdvancedSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authentication.resx">
+    <EmbeddedResource Include="app_features\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteComponent.resx">
+    <EmbeddedResource Include="add_update_delete_db\DeleteComponent.resx">
       <DependentUpon>DeleteComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features.resx">
+    <EmbeddedResource Include="app_features\Features.resx">
       <DependentUpon>Features.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileLoader.resx">
+    <EmbeddedResource Include="app_features\FileLoader.resx">
       <DependentUpon>FileLoader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Implications.resx">
+    <EmbeddedResource Include="app_features\Implications.resx">
       <DependentUpon>Implications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inquiry.resx">
+    <EmbeddedResource Include="app_features\Inquiry.resx">
       <DependentUpon>Inquiry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportWindow.resx">
+    <EmbeddedResource Include="app_features\ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateComponent.resx">
+    <EmbeddedResource Include="add_update_delete_db\UpdateComponent.resx">
       <DependentUpon>UpdateComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateFault.resx">
+    <EmbeddedResource Include="add_update_delete_db\UpdateFault.resx">
       <DependentUpon>UpdateFault.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
+    <EmbeddedResource Include="general\UserControl1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UserControl1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserWindow.resx">
+    <EmbeddedResource Include="app_features\UserWindow.resx">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="general\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -188,7 +193,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ofekM.ico" />
+    <Content Include="general\ofekM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
