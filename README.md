@@ -1,8 +1,8 @@
 # Implications or not to be ("משמעויות או לא להיות")
 
-It's an app which developed in order to manage faults (and their implications) of components in a large and complicated system.
+"Implications or not to be" it's a program for managing faults (and their implications) of components in a large and complicated system.
 In my implementation, it manages components of a celluar system.
-The components are be the sites (base stations) ,servers,routers,switches and more.
+The components are be the sites (base stations) ,servers,routers,switches,etc.
 
 ## Main objective
 
@@ -39,4 +39,7 @@ then run the AlertProject.exe file.
 important: do not tuch the files in the folder.
 the app run is based on these files.
 
-
+## What I learned
+* C# programming language
+* Winforms GUI Library
+* Use Serialization in reading/writing objects from/to files.
