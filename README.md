@@ -1,23 +1,26 @@
 # Implications or not to be ("משמעויות או לא להיות")
 
-"Implications or not to be" it's a program for managing faults (and their implications) of components in a large and complicated system.
+"משמעויות או לא להיות" it's a program for managing faults (and their implications) of components in a large and complicated system.
 In my implementation, it manages components of a celluar system.
-The components are be the sites (base stations) ,servers,routers,switches,etc.
+The components can be the sites (base stations), servers, routers, switches,etc.
 
 ## Main objective
 
-mapping all the components and their known faults/malfunctions in the system.
+Mapping all the components and their known faults/malfunctions in the system.
 By that, the program can deduce:
 
-1. for each fault of a component, which other components can affect it ( in a case of a malfunction in them).
+1. For each component, which other components can affect it ( in a case of a malfunction in them).
 2. It can also deduce in a case of a fault, who all the other components which affected by this fault.
+
+The bottom line - the user can have a better understanding of the cellular system in the systemic level, deals better with faults, and also introvent much better the System architecture.
+
 
 ![alt text](https://github.com/ofekMula/Faults_Managment/blob/master/images/implications_proj2.JPG)
 
 ## How the model is built?
 
-The relations between the objects is defines the implications of each fault of a specific component on other components in the system.
-this is why,the Database must be created by the engineer of the system or an expert operator of it.
+The relations between the objects define the implications of each fault of a specific component on other components in the system.
+this is why,the Database must be built by the engineer of the system or an expert operator of it.
 
 ## Menu options:
 
@@ -34,8 +37,8 @@ this is why,the Database must be created by the engineer of the system or an exp
 
 ## Installation (runs in Windows only):
 
-download the FaultManagmentApp folder in the repository.
-then run the AlertProject.exe file.
+Download the FaultManagmentApp folder in the repository.
+run the AlertProject.exe file.
 important: do not tuch the files in the folder.
 the app run is based on these files.
 
