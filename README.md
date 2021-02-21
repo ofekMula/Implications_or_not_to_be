@@ -4,6 +4,9 @@
 In my implementation, it manages components of a celluar system.
 The components can be the sites (base stations), servers, routers, switches,etc.
 
+Link to video of the app:
+https://www.youtube.com/watch?v=A_b4Zc5ScmM&ab_channel=ofekm
+
 ## Main objective
 
 Mapping all the components and their known faults/malfunctions in the system.
