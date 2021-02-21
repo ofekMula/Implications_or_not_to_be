@@ -82,7 +82,6 @@ C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.Inquiry
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.ReportWindow.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.UpdateComponent.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.UpdateFault.resources
-C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.UserControl1.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.UserWindow.resources
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csproj.GenerateResource.cache
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csproj.CoreCompileInputs.cache
@@ -90,3 +89,4 @@ C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csproj.
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.exe
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.pdb
 C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.csprojAssemblyReference.cache
+C:\Users\Ofek Mula\source\repos\Faults_Managment\obj\Debug\AlertsProject.general.UserControl1.resources

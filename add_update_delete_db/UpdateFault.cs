@@ -367,7 +367,7 @@ namespace AlertsProject
             // 
             this.addAffectedComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.addAffectedComponentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAffectedComponentButton.Location = new System.Drawing.Point(592, 551);
+            this.addAffectedComponentButton.Location = new System.Drawing.Point(602, 564);
             this.addAffectedComponentButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addAffectedComponentButton.Name = "addAffectedComponentButton";
             this.addAffectedComponentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -383,7 +383,7 @@ namespace AlertsProject
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(994, 540);
+            this.label2.Location = new System.Drawing.Point(1011, 558);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -398,7 +398,7 @@ namespace AlertsProject
             this.affectedComponentsNameList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.affectedComponentsNameList.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.affectedComponentsNameList.FormattingEnabled = true;
-            this.affectedComponentsNameList.Location = new System.Drawing.Point(705, 549);
+            this.affectedComponentsNameList.Location = new System.Drawing.Point(714, 572);
             this.affectedComponentsNameList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.affectedComponentsNameList.Name = "affectedComponentsNameList";
             this.affectedComponentsNameList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

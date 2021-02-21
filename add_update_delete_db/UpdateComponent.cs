@@ -342,7 +342,7 @@ namespace AlertsProject
             // 
             this.deleteFaultFromListButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.deleteFaultFromListButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteFaultFromListButton.Location = new System.Drawing.Point(430, 749);
+            this.deleteFaultFromListButton.Location = new System.Drawing.Point(430, 760);
             this.deleteFaultFromListButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.deleteFaultFromListButton.Name = "deleteFaultFromListButton";
             this.deleteFaultFromListButton.Size = new System.Drawing.Size(150, 77);
@@ -355,7 +355,7 @@ namespace AlertsProject
             // 
             this.clearFaultsListButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.clearFaultsListButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearFaultsListButton.Location = new System.Drawing.Point(430, 663);
+            this.clearFaultsListButton.Location = new System.Drawing.Point(430, 674);
             this.clearFaultsListButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.clearFaultsListButton.Name = "clearFaultsListButton";
             this.clearFaultsListButton.Size = new System.Drawing.Size(150, 77);
@@ -381,7 +381,7 @@ namespace AlertsProject
             this.FaultsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.FaultsView.Location = new System.Drawing.Point(590, 555);
+            this.FaultsView.Location = new System.Drawing.Point(590, 566);
             this.FaultsView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FaultsView.MultiSelect = false;
             this.FaultsView.Name = "FaultsView";
